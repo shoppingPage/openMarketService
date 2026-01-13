@@ -1,8 +1,8 @@
-# openMarketService
-오픈 마켓 서비스 구현
+# proj02
+워케이션 팀프로젝트 2차
 
-# 개별 branch 이름
-feat/loginPage 
-feat/joinPage
-feat/productListPage
-feat/productDetail
+4팀 (4명): 한유리ok, 변슬기ok, 이영미ok, 김성민ok.
+
+
+
+(팀원 명단 자기이름 옆에 ok 붙여 수정해주시고 커밋 붙여보세요.)

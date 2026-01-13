@@ -1,0 +1,9 @@
+:root {
+  --background-color: #ffffff;
+  --gray-color: #f2f2f2;
+  --point-color: #21bf48;
+  --border: 1px #c4c4c4 solid;
+  --text-color: #000000;
+  --warning-txt-color: #eb5757;
+  --input-txt-color: #767676;
+}
