@@ -42,11 +42,11 @@ img {
   overflow: hidden;
 }
 
-input {
+/* input {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-}
+} */
 
 button {
   background-color: inherit;
