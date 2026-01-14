@@ -57,6 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Main Page ---
   const productLinks = document.querySelectorAll(".product-item a");
   productLinks.forEach((link) => {
-    link.href = "./product-detail/index.html";
+    link.href = "../product-detail/index.html";
   });
 });
