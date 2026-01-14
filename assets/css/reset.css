@@ -50,8 +50,8 @@ input {
 }
 
 button {
+  background-color: inherit;
   cursor: pointer;
-  padding: 10px 24px;
   width: max-content;
   border: none;
   border-radius: 40px;
