@@ -42,17 +42,6 @@ img {
   margin: -1px;
   overflow: hidden;
 }
-
-/* input {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-<<<<<<< HEAD
-}
-=======
-} */
->>>>>>> dev
-
 button {
   background-color: inherit;
   cursor: pointer;
