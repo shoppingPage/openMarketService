@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HODU | 로그인</title>
+
+  <link rel="stylesheet" href="./css/login.css" />
+</head>
+
+<body>
+  <main class="login__wrap">
+    <h1 class="login__logo">
+      <img src="./images/Logo-hodu.png" alt="HODU" />
+    </h1>
+
+    <h2 class="login__title">로그인</h2>
+
+    <section class="login__card" aria-label="로그인">
+      <form id="loginForm" class="login__form" novalidate>
+        <label class="login__field">
+          <span class="login__label">아이디</span>
+          <input
+            id="username"
+            class="login__input"
+            type="text"
+            autocomplete="username"
+            aria-describedby="warnBox"
+          />
+        </label>
+
+        <label class="login__field">
+          <span class="login__label">비밀번호</span>
+          <input
+            id="password"
+            class="login__input"
+            type="password"
+            autocomplete="current-password"
+            aria-describedby="warnBox"
+          />
+        </label>
+
+        <!-- 오류 메시지: 비번 아래 + 로그인 버튼 위 -->
+        <div id="warnBox" class="login__warn" role="alert" aria-live="polite"></div>
+
+        <button id="loginBtn" class="login__btn" type="submit">로그인</button>
+      </form>
+    </section>
+
+    <nav class="login__links" aria-label="하단 링크">
+      <a class="login__link" href="./signup.html">회원가입</a>
+      <span class="login__divider" aria-hidden="true">|</span>
+      <a class="login__link" href="./find-password.html">비밀번호 찾기</a>
+    </nav>
+  </main>
+
+  <script src="./js/login.js"></script>
+</body>
+</html>
