@@ -1,81 +1,128 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>HODU - 회원가입</title>
-<<<<<<< HEAD
-	<link rel="stylesheet" href="assets/css/join.css">
-	<link rel="stylesheet" href="assets/css/reset.css" />
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쇼핑 리스트</title>
+    <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/font.css" />
     <link rel="stylesheet" href="assets/css/root.css" />
-=======
-    <link rel="stylesheet" href="assets/css/join.css">
->>>>>>> dev
-</head>
-<body>
-    <div class="join-container">
-    <div class="logo-container">
-        <img src="assets/images/Logo-hodu.png" alt="HODU 로고" class="logo-img">
-    </div>
-        
-        <form id="joinForm">
-            <div class="input-group">
-                <label>아이디</label>
-                <div class="id-flex">
-                    <input type="text" id="userId" placeholder="아이디를 입력하세요">
-                    <button type="button" id="btnCheckId">중복확인</button>
-                </div>
-                <p class="msg" id="idMsg"></p>
-            </div>
-
-            <div class="input-group">
-                <label>비밀번호</label>
-                <div class="input-wrapper">
-                    <input type="password" id="pw" placeholder="비밀번호를 입력하세요">
-                    <span class="icon-check" id="pwIcon">✔</span>
-                </div>
-                <p class="msg" id="pwMsg"></p>
-            </div>
-
-            <div class="input-group">
-                <label>비밀번호 재확인</label>
-                <div class="input-wrapper">
-                    <input type="password" id="pwConfirm" placeholder="비밀번호를 다시 입력하세요">
-                    <span class="icon-check" id="pwConfirmIcon">✔</span>
-                </div>
-                <p class="msg" id="pwConfirmMsg"></p>
-            </div>
-
-            <div class="input-group">
-                <label>이름</label>
-                <input type="text" id="userName" placeholder="이름을 입력하세요">
-                <p class="msg" id="nameMsg"></p>
-            </div>
-
-            <div class="input-group">
-                <label>휴대폰번호</label>
-                <div class="phone-flex">
-                    <select id="phone1">
-                        <option value="010">010</option>
-                    </select>
-                    <input type="text" id="phone2" maxlength="4">
-                    <input type="text" id="phone3" maxlength="4">
-                </div>
-                <p class="msg" id="phoneMsg"></p>
-            </div>
-
-            <div class="terms-area">
-                <input type="checkbox" id="terms">
-                <label for="terms">호두샵의 <span>이용약관</span> 및 <span>개인정보처리방침</span>에 대한 내용을 확인하였고 동의합니다.</label>
-            </div>
-
-            <button type="submit" id="btnJoin" disabled>가입하기</button>
+    <link rel="stylesheet" href="assets/css/pages/product.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="top-nav-bar">
+        <h1>
+          <a href="#">
+            <img
+              src="assets/images/Logo-hodu.png"
+              alt="호두몰 로고"
+              class="logo-hodu"
+            />
+          </a>
+        </h1>
+        <form role="search" class="search-form">
+          <label for="site-search" class="scr-only">사이트 검색</label>
+          <input
+            type="search"
+            id="site-search"
+            class="search-input"
+            placeholder="상품을 검색해보세요!"
+          />
+          <button type="submit" class="search-btn">
+            <img src="assets/images/icon-search.svg" alt="#" />
+          </button>
         </form>
-    </div>
-    <script src="assets/js/pages/join.js"></script>
-</body>
-<<<<<<< HEAD
+        <ul class="user-menu">
+          <li class="shopping-cart">
+            <a href="#"
+              ><img
+                src="assets/images/icon-shopping-bag.svg"
+                alt="#"
+              />장바구니</a
+            >
+          </li>
+          <li class="my-page">
+            <a href="#"
+              ><img src="assets/images/icon-user-2.svg" alt="#" />마이페이지</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero-section event-banner">
+        <h2 class="scr-only">쇼핑 리스트 이벤트 배너</h2>
+        <button class="button-left">
+          <img src="assets/images/icon-rhigt-arrow.svg" alt="" /></button
+        ><button class="button-right">
+          <img src="assets/images/icon-rhigt-arrow.svg" alt="" />
+        </button>
+      </section>
+      <section class="shopping-list-section">
+        <h2 class="scr-only">상품 리스트</h2>
+        <ul class="product-list-container">
+          <li class="product-item">
+            <a href="#">
+              <img src="assets/images/product-img1.png" alt="#" />
+              <p class="seller">우당탕탕 라이캣의 실험실</p>
+              <p class="product-name">Hack Your Life 개발자 노트북 파우치</p>
+              <div class="price">
+                <p class="price-val">29,000</p>
+                <p>원</p>
+              </div>
+            </a>
+          </li>
+          <li class="product-item">
+            <a href="#">
+              <img src="assets/images/product-img2.png" alt="#" />
+              <p class="seller">제주코딩베이스캠프</p>
+              <p class="product-name">네 개발잡니다 개발자키링 금속키링</p>
+              <div class="price">
+                <p class="price-val">29,000</p>
+                <p>원</p>
+              </div>
+            </a>
+          </li>
+          <li class="product-item">
+            <a href="#">
+              <img src="assets/images/product-img3.png" alt="#" />
+              <p class="seller">백엔드글로벌</p>
+              <p class="product-name">딥러닝 개발자 무릎 담요</p>
+              <div class="price">
+                <p class="price-val">29,000</p>
+                <p>원</p>
+              </div>
+            </a>
+          </li>
+          <li class="product-item">
+            <a href="#">
+              <img src="assets/images/product-img4.png" alt="#" />
+              <p class="seller">코딩앤유</p>
+              <p class="product-name">우당탕탕 라이캣의 실험실 스티커</p>
+              <div class="price">
+                <p class="price-val">29,000</p>
+                <p>원</p>
+              </div>
+            </a>
+          </li>
+          <li class="product-item">
+            <a href="#">
+              <img src="assets/images/product-img5.png" alt="#" />
+              <p class="seller">파이썬스쿨</p>
+              <p class="product-name">
+                버그를 Java라 버그잡는 개리씨 키링 개발자 키링...
+              </p>
+              <div class="price">
+                <p class="price-val">29,000</p>
+                <p>원</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="assets/js/pages/product.js"></script>
+  </body>
 </html>
-=======
-</html>
->>>>>>> dev
