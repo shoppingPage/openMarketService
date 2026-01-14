@@ -5,11 +5,6 @@
 ### 1. HTML Convention
 
 - **소문자 사용**: 모든 태그와 속성은 소문자로 작성합니다.
-- **속성 순서**: 가독성을 위해 아래의 순서로 속성을 배치합니다.
-  1. `class`
-  2. `id`, `name`
-  3. `src`, `href`, `type`
-  4. `alt`, `title`
 - **시맨틱 태그**: 의미 있는 마크업을 위해 `<div>`보다는 `<header>`, `<main>`, `<footer>`, `<section>` 등 시맨틱 태그 사용을 지향합니다.
 
 ### 2. CSS Convention
@@ -17,7 +12,7 @@
 - **Naming**: **BEM (Block Element Modifier)** 패턴을 사용합니다.
   - `.block__element--modifier` (예: `.card__btn--active`)
 - **속성 선언 순서**:
-  1. **Layout**: `display`, `position`, `float`, `z-index`
+  1. **Layout**: `display`, `position`, `flex`, `z-index`
   2. **Box Model**: `width`, `height`, `margin`, `padding`
   3. **Visual**: `background`, `border`, `color`
   4. **Typography**: `font-family`, `font-size`, `text-align`
