@@ -1,88 +1,66 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko-KR">
   <head>
     <meta charset="UTF-8" />
-    <title>HODU - 회원가입</title>
-    <link rel="stylesheet" href="../assets/css/join.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>딥러닝 개발자 무릎 담요</title>
     <link rel="stylesheet" href="../assets/css/reset.css" />
     <link rel="stylesheet" href="../assets/css/font.css" />
     <link rel="stylesheet" href="../assets/css/root.css" />
+    <link rel="stylesheet" href="../assets/css/pages/product-detail.css" />
   </head>
   <body>
-    <div class="join-container">
-      <div class="logo-container">
-        <img
-          src="assets/images/Logo-hodu.png"
-          alt="HODU 로고"
-          class="logo-img"
-        />
-      </div>
+    <header></header>
+    <main class="product-detail">
+      <section class="product-layout">
+        <h2 class="scr-only">상품 상세 정보</h2>
+        <div class="product-img">
+          <img src="#" alt="딥러닝 개발자 무릎 담요 제품 이미지" />
+        </div>
+        <div class="product-info">
+          <p class="store-name">백엔드글로벌</p>
+          <h3 class="product-tit">딥러닝 개발자 무릎 담요</h3>
+          <p class="product-price">17,500<span class="unit">원</span></p>
+          <p class="delivery-info">택배배송 / 무료배송</p>
+          <hr class="divider" />
 
-      <form id="joinForm">
-        <div class="input-group">
-          <label>아이디</label>
-          <div class="id-flex">
-            <input type="text" id="userId" placeholder="아이디를 입력하세요" />
-            <button type="button" id="btnCheckId">중복확인</button>
+          <div class="quantity-selector">
+            <button type="button" class="minus" aria-label="수량 감소">
+              -
+            </button>
+            <input type="number" value="1" readonly title="구매 수량" />
+            <button type="button" class="plus" aria-label="수량 증가">+</button>
           </div>
-          <p class="msg" id="idMsg"></p>
-        </div>
 
-        <div class="input-group">
-          <label>비밀번호</label>
-          <div class="input-wrapper">
-            <input
-              type="password"
-              id="pw"
-              placeholder="비밀번호를 입력하세요"
-            />
-            <span class="icon-check" id="pwIcon">✔</span>
+          <hr class="divider" />
+
+          <div class="total-price-wrap">
+            <span class="total-label">총 상품 금액</span>
+            <div class="total-data">
+              <span class="total-count"
+                >총 수량 <strong class="color-point">1</strong>개</span
+              >
+              <span class="total-price">17,500</span>
+              <p class="unit-green">원</p>
+            </div>
           </div>
-          <p class="msg" id="pwMsg"></p>
-        </div>
 
-        <div class="input-group">
-          <label>비밀번호 재확인</label>
-          <div class="input-wrapper">
-            <input
-              type="password"
-              id="pwConfirm"
-              placeholder="비밀번호를 다시 입력하세요"
-            />
-            <span class="icon-check" id="pwConfirmIcon">✔</span>
+          <div class="action-buttons">
+            <button type="button" class="btn-buy">바로 구매</button>
+            <button type="button" class="btn-cart">장바구니</button>
           </div>
-          <p class="msg" id="pwConfirmMsg"></p>
         </div>
+      </section>
 
-        <div class="input-group">
-          <label>이름</label>
-          <input type="text" id="userName" placeholder="이름을 입력하세요" />
-          <p class="msg" id="nameMsg"></p>
-        </div>
-
-        <div class="input-group">
-          <label>휴대폰번호</label>
-          <div class="phone-flex">
-            <select id="phone1">
-              <option value="010">010</option>
-            </select>
-            <input type="text" id="phone2" maxlength="4" />
-            <input type="text" id="phone3" maxlength="4" />
-          </div>
-          <p class="msg" id="phoneMsg"></p>
-        </div>
-
-        <div class="terms-area">
-          <input type="checkbox" id="terms" />
-          <label for="terms"
-            >호두샵의 <span>이용약관</span> 및 <span>개인정보처리방침</span>에
-            대한 내용을 확인하였고 동의합니다.</label
-          >
-        </div>
-
-        <button type="submit" id="btnJoin" disabled>가입하기</button>
-      </form>
-    </div>
-    <script src="assets/js/pages/join.js"></script>
+      <nav class="product-tabs">
+        <ul class="tab-list">
+          <li class="active"><a href="#detail">버튼</a></li>
+          <li><a href="#review">리뷰</a></li>
+          <li><a href="#qna">Q&A</a></li>
+          <li><a href="#return">반품/교환정보</a></li>
+        </ul>
+      </nav>
+    </main>
+    <script src="../assets/js/pages/product.js"></script>
   </body>
 </html>
