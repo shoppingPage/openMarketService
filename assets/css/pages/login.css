@@ -1,0 +1,322 @@
+/* ==========================================
+   폰트 정의
+========================================== */
+@font-face {
+  font-family: "SpokaHanSansNeo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Thin.woff") format("woff");
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpokaHanSansNeo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Light.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpokaHanSansNeo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpokaHanSansNeo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Medium.woff") format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SpokaHanSansNeo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ==========================================
+   CSS 변수
+========================================== */
+:root {
+  --background-color: #ffffff;
+  --gray-color: #f2f2f2;
+  --point-color: #21bf48;
+  --border: 1px #c4c4c4 solid;
+  --text-color: #000000;
+  --warning-txt-color: #eb5757;
+  --input-txt-color: #767676;
+}
+
+/* ==========================================
+   기본 리셋
+========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================
+   공통 스타일
+========================================== */
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "SpokaHanSansNeo", sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* 스크린 리더 전용 텍스트 */
+.scr-only {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 24px;
+  width: max-content;
+  border: none;
+  border-radius: 40px;
+}
+
+/* ==========================================
+   로그인 페이지 레이아웃
+========================================== */
+.login__wrap {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 100px 20px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==========================================
+   로고
+========================================== */
+.login__logo {
+  margin-bottom: 70px;
+}
+
+.login__logo img {
+  width: 238px;
+  height: auto;
+}
+
+/* ==========================================
+   탭 (구매회원/판매회원 로그인)
+========================================== */
+.login__tabs {
+  width: 100%;
+  display: flex;
+  border: 1px solid #c4c4c4;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+
+.login__tab {
+  flex: 1;
+  padding: 20px;
+  background-color: var(--background-color);
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--input-txt-color);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.login__tab:first-child {
+  border-right: 1px solid #c4c4c4;
+}
+
+.login__tab.active {
+  background-color: var(--point-color);
+  color: var(--background-color);
+  font-weight: 700;
+}
+
+/* ==========================================
+   로그인 카드
+========================================== */
+.login__card {
+  width: 100%;
+  background-color: var(--background-color);
+  border: 1px solid #c4c4c4;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 60px 35px 36px;
+}
+
+/* ==========================================
+   폼 스타일
+========================================== */
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.login__label {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--input-txt-color);
+  margin-bottom: 10px;
+}
+
+/* ==========================================
+   입력 필드
+========================================== */
+.login__input {
+  width: 100%;
+  padding: 17px 0;
+  border: none;
+  border-bottom: var(--border);
+  font-size: 1.6rem;
+  color: var(--text-color);
+  background-color: transparent;
+  transition: border-color 0.3s;
+}
+
+.login__input::placeholder {
+  color: var(--input-txt-color);
+}
+
+.login__input:focus {
+  outline: none;
+  border-bottom-color: var(--point-color);
+}
+
+.login__input.error {
+  border-bottom-color: var(--warning-txt-color);
+}
+
+/* ==========================================
+   경고 메시지
+========================================== */
+.login__warn {
+  min-height: 20px;
+  font-size: 1.4rem;
+  color: var(--warning-txt-color);
+  margin: 12px 0 0 0;
+  display: none;
+}
+
+.login__warn.show {
+  display: block;
+}
+
+/* ==========================================
+   로그인 버튼
+========================================== */
+.login__btn {
+  width: 100%;
+  padding: 19px;
+  background-color: var(--point-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 36px;
+  transition: opacity 0.3s;
+}
+
+.login__btn:hover {
+  opacity: 0.9;
+}
+
+.login__btn:active {
+  opacity: 0.8;
+}
+
+/* ==========================================
+   하단 링크 (회원가입, 비밀번호 찾기)
+========================================== */
+.login__links {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.6rem;
+}
+
+.login__link {
+  color: var(--input-txt-color);
+  transition: color 0.3s;
+}
+
+.login__link:hover {
+  color: var(--text-color);
+}
+
+.login__divider {
+  margin: 0 14px;
+  color: var(--input-txt-color);
+}
+
+/* ==========================================
+   반응형 디자인
+========================================== */
+@media (max-width: 600px) {
+  .login__wrap {
+    padding: 60px 20px 20px;
+  }
+
+  .login__logo {
+    margin-bottom: 50px;
+  }
+
+  .login__logo img {
+    width: 180px;
+  }
+
+  .login__card {
+    padding: 40px 24px 30px;
+  }
+
+  .login__tab {
+    font-size: 1.6rem;
+    padding: 16px;
+  }
+}
