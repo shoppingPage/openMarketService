@@ -81,26 +81,18 @@ passwordInput.addEventListener('input', () => {
 // ==========================================
 
 function validateEmptyFields(username, password) {
-  // 아이디,비밀번호 입련란 모두 공란일 경우, 비밀번호만 입력했을 경우:
- if (!username && !password) {
+  // 아이디, 비밀번호 입력란 모두 공란일 경우, 비밀번호만 입력했을 경우 : 
+  if (!username && !password) {
     showWarning('아이디를 입력해 주세요.');
     showInputError(usernameInput);
-    showInputError(passwordInput);르
+    showInputError(passwordInput);
     usernameInput.focus(); // 아이디 입력창에 포커스
     return false;
   }
 
-  // 아이디만 입력했을 경우
-  if (!username) {
-    showWarning('비밀번호를 입력해 주세요.');
-    showInputError(usernameInput);
-    usernameInput.focus(); // 아이디 입력창에 포커스
-    return false;
-  }
-
-  //  아이디, 비밀번호가 일치하지 않을 경우
+  // 아이디만 입력했을 경우 : 
   if (!password) {
-    showWarning('아이디 또는 비밀번호가 일치하지 않습니다.');
+    showWarning('비밀번호를 입력해 주세요.');
     showInputError(passwordInput);
     passwordInput.focus(); // 비밀번호 입력창에 포커스
     return false;
@@ -159,7 +151,7 @@ async function performLogin(username, password) {
     const isValid = validateCredentials(username, password);
 
     if (!isValid) {
-      // 아이디 또는 비밀번호 불일치
+      // 아이디, 비밀번호가 일치하지 않을 경우 :
       showWarning('아이디 또는 비밀번호가 일치하지 않습니다.');
       showInputError(passwordInput);
       
