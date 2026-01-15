@@ -3,13 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>딥러닝 개발자 무릎 담요</title>
+    <title>상품 상세 | HODU</title>
     <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/font.css">
     <link rel="stylesheet" href="../assets/css/root.css">
     <link rel="stylesheet" href="../assets/css/pages/product-detail.css">
 </head>
 <body>
+    <header class="main-header">
+      <section class="container header-content">
+        <div class="header-first">
+          <h1 class="logo">
+            <a href="/"
+              ><img src="../assets/images/Logo-hodu.png" alt="HODU 로고"
+            /></a>
+          </h1>
+          <form class="search-form" role="search">
+            <fieldset>
+              <legend class="scr-only">상품 검색</legend>
+              <input
+                type="search"
+                placeholder="상품을 검색해보세요!"
+                class="search-input"
+              />
+              <button type="submit" class="search-btn">
+                <img src="../assets/images/icon-search.svg" alt="검색하기" />
+              </button>
+            </fieldset>
+          </form>
+        </div>
+
+        <nav class="user-navigation">
+          <ul class="nav-list">
+            <li>
+              <a href="/cart" class="nav-link">
+                <img
+                  src="../assets/images/icon-shopping-cart-2.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span>장바구니</span>
+              </a>
+            </li>
+            <li>
+              <a href="/login" class="nav-link">
+                <img
+                  src="../assets/images/icon-user-2.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span>로그인</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </header>
     <main>
         <div class="container">
             <section class="product-detail">
@@ -70,8 +119,10 @@
             </nav>
         </div>
     </main>
+    <!-- footer -->
     <footer class="footer">
-        <div class="container">
+        <section class="container">
+            <h2 class="scr-only">사업자 정보</h2>
             <div class="footer-top">
                 <nav class="footer-nav">
                     <ul class="footer-links">
@@ -107,7 +158,8 @@
                     <p class="company-ceo">대표 : 김호두</p>
                 </div>
             </div>
-        </div>
+        </section>
     </footer>
+    <script src="../assets/js/pages/product-detail.js"></script>
 </body>
 </html>
