@@ -371,6 +371,322 @@ main {
   color: var(--text-color);
 }
 
+/* ================================ */
+/* 탭 콘텐츠 영역 */
+/* ================================ */
+.tab-content-wrapper {
+  min-height: 400px;
+  padding: 60px 0;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-content-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--gray-color);
+}
+
+/* 상세정보 탭 */
+.detail-content {
+  padding: 40px 0;
+}
+
+.detail-placeholder {
+  text-align: center;
+  font-size: 1.6rem;
+  color: var(--input-txt-color);
+  padding: 100px 0;
+}
+
+/* 리뷰 탭 */
+.review-summary {
+  background-color: var(--gray-color);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.review-score {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.score-number {
+  font-size: 4.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  font-size: 2.4rem;
+  color: #c4c4c4;
+}
+
+.star.filled {
+  color: #ffb800;
+}
+
+.star.half {
+  background: linear-gradient(90deg, #ffb800 50%, #c4c4c4 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.review-count {
+  font-size: 1.6rem;
+  color: var(--input-txt-color);
+  margin-left: 10px;
+}
+
+.review-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.review-item {
+  padding: 25px 0;
+  border-bottom: 1px solid var(--gray-color);
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviewer-name {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.reviewer-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.reviewer-stars .star {
+  font-size: 1.4rem;
+}
+
+.review-date {
+  font-size: 1.4rem;
+  color: var(--input-txt-color);
+}
+
+.review-text {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Q&A 탭 */
+.qna-notice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--gray-color);
+  border-radius: 10px;
+  padding: 20px 30px;
+  margin-bottom: 30px;
+}
+
+.qna-notice p {
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+.btn-qna-write {
+  padding: 12px 24px;
+  background-color: var(--point-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-qna-write:hover {
+  background-color: #1ba63f;
+}
+
+.qna-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.qna-item {
+  border-bottom: 1px solid var(--gray-color);
+  padding: 25px 0;
+}
+
+.qna-item:last-child {
+  border-bottom: none;
+}
+
+.qna-question,
+.qna-answer {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.qna-answer {
+  margin-top: 20px;
+  padding-left: 10px;
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-left: 40px;
+}
+
+.qna-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.qna-badge.q {
+  background-color: var(--point-color);
+  color: white;
+}
+
+.qna-badge.a {
+  background-color: #767676;
+  color: white;
+}
+
+.qna-content {
+  flex: 1;
+}
+
+.qna-text {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.qna-date {
+  font-size: 1.3rem;
+  color: var(--input-txt-color);
+}
+
+.qna-status {
+  font-size: 1.3rem;
+  padding: 4px 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.qna-status.answered {
+  background-color: #e8f5e9;
+  color: var(--point-color);
+}
+
+.qna-status.waiting {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+/* 반품/교환정보 탭 */
+.return-info {
+  padding: 20px 0;
+}
+
+.return-section {
+  margin-bottom: 40px;
+}
+
+.return-section:last-child {
+  margin-bottom: 0;
+}
+
+.return-subtitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 15px;
+  padding-left: 15px;
+  border-left: 4px solid var(--point-color);
+}
+
+.return-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.return-list li {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  line-height: 1.8;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.return-list li::before {
+  content: "•";
+  position: absolute;
+  left: 5px;
+  color: var(--input-txt-color);
+}
+
+.return-list li:last-child {
+  margin-bottom: 0;
+}
+
 .footer {
   width: 100%;
   background-color: #f2f2f2;
