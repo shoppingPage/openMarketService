@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상품 상세 | HODU</title>
-    <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/font.css">
-    <link rel="stylesheet" href="../assets/css/root.css">
-    <link rel="stylesheet" href="../assets/css/pages/product-detail.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/font.css" />
+    <link rel="stylesheet" href="../assets/css/root.css" />
+    <link rel="stylesheet" href="../assets/css/pages/product-detail.css" />
+  </head>
+  <body>
     <header class="main-header">
       <section class="container header-content">
         <div class="header-first">
@@ -60,64 +60,71 @@
       </section>
     </header>
     <main>
-        <div class="container">
-            <section class="product-detail">
-                <h2 class="scr-only">상품 상세 정보</h2>
-                
-                <div class="product-img">
-                    <img src="" alt="딥러닝 개발자 무릎 담요 제품 이미지">
+      <div class="container">
+        <section class="product-detail">
+          <h2 class="scr-only">상품 상세 정보</h2>
+
+          <div class="product-img">
+            <img src="" alt="딥러닝 개발자 무릎 담요 제품 이미지" />
+          </div>
+
+          <div class="product-info">
+            <div class="info-top">
+              <p class="store-name">백엔드글로벌</p>
+              <h3 class="product-tit">딥러닝 개발자 무릎 담요</h3>
+              <p class="product-price">17,500<span class="unit">원</span></p>
+              <p class="delivery-info">택배배송 / 무료배송</p>
+
+              <hr class="divider" />
+
+              <div class="quantity-selector">
+                <button type="button" class="minus">
+                  <img
+                    src="../assets/images/icon-minus-line.svg"
+                    alt="수량 감소"
+                  />
+                </button>
+                <input type="number" value="1" />
+                <button type="button" class="plus">
+                  <img
+                    src="../assets/images/icon-plus-line.svg"
+                    alt="수량 증가"
+                  />
+                </button>
+              </div>
+
+              <hr class="divider" />
+            </div>
+
+            <div class="info-bottom">
+              <div class="total-price-wrap">
+                <span class="total-label">총 상품 금액</span>
+                <div class="total-data">
+                  <span class="total-count">총 수량 <strong>1</strong>개</span>
+                  <div class="price-wrap">
+                    <span class="total-price">17,500</span
+                    ><span class="unit-green">원</span>
+                  </div>
                 </div>
-            
-                <div class="product-info">
-                    <div class="info-top">
-                        <p class="store-name">백엔드글로벌</p>
-                        <h3 class="product-tit">딥러닝 개발자 무릎 담요</h3>
-                        <p class="product-price">17,500<span class="unit">원</span></p>
-                        <p class="delivery-info">택배배송 / 무료배송</p>
+              </div>
 
-                        <hr class="divider">
+              <div class="action-buttons">
+                <button type="button" class="btn-buy">바로 구매</button>
+                <button type="button" class="btn-cart">장바구니</button>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                        <div class="quantity-selector">
-                            <button type="button" class="minus">
-                                <img src="../assets/images/icon-minus-line.svg" alt="수량 감소">
-                            </button>
-                            <input type="number" value="1">
-                            <button type="button" class="plus">
-                                <img src="../assets/images/icon-plus-line.svg" alt="수량 증가">
-                            </button>
-                        </div>
-                        
-                        <hr class="divider">
-                    </div>
-
-                    <div class="info-bottom">
-                        <div class="total-price-wrap">
-                            <span class="total-label">총 상품 금액</span>
-                            <div class="total-data">
-                                <span class="total-count">총 수량 <strong>1</strong>개</span>
-                                <div class="price-wrap">
-                                    <span class="total-price">17,500</span><span class="unit-green">원</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="action-buttons">
-                            <button type="button" class="btn-buy">바로 구매</button>
-                            <button type="button" class="btn-cart">장바구니</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <nav class="product-tabs">
-                <ul class="tab-list">
-                    <li class="active"><a href="#detail">버튼</a></li>
-                    <li><a href="#review">리뷰</a></li>
-                    <li><a href="#qna">Q&A</a></li>
-                    <li><a href="#return">반품/교환정보</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="product-tabs">
+          <ul class="tab-list">
+            <li class="active"><a href="#detail">버튼</a></li>
+            <li><a href="#review">리뷰</a></li>
+            <li><a href="#qna">Q&A</a></li>
+            <li><a href="#return">반품/교환정보</a></li>
+          </ul>
+        </nav>
+      </div>
     </main>
     <!-- footer -->
     <div id="footer-container"></div>
@@ -128,4 +135,114 @@
         loadFooter('../assets/');
     </script>
 </body>
+</html>
+    <footer class="footer">
+      <section class="container">
+        <h2 class="scr-only">사업자 정보</h2>
+        <div class="footer-top">
+          <nav class="footer-nav">
+            <ul class="footer-links">
+              <li><a href="#">호두샵 소개</a></li>
+              <li><a href="#">이용약관</a></li>
+              <li><a href="#" class="bold">개인정보처리방침</a></li>
+              <li><a href="#">전자금융거래약관</a></li>
+              <li><a href="#">청소년보호정책</a></li>
+              <li><a href="#">제휴문의</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-sns">
+            <a href="#" class="sns-link" aria-label="인스타그램">
+              <img src="../assets/images/icon-insta.svg" alt="인스타그램" />
+            </a>
+            <a href="#" class="sns-link" aria-label="페이스북">
+              <img src="../assets/images/icon-fb.svg" alt="페이스북" />
+            </a>
+            <a href="#" class="sns-link" aria-label="유튜브">
+              <img src="../assets/images/icon-yt.svg" alt="유튜브" />
+            </a>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+          <div class="company-info">
+            <p class="company-name">(주)HODU SHOP</p>
+            <p class="company-address">
+              제주특별자치도 제주시 동광로 137 제주코딩베이스캠프
+            </p>
+            <p class="company-details">
+              사업자 번호 : 000-0000-0000 | 통신판매업
+            </p>
+            <p class="company-ceo">대표 : 김호두</p>
+          </div>
+        </div>
+      </section>
+    </footer>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get("id");
+      let productPrice = 0;
+
+      async function getProductDetail() {
+        if (!productId) {
+          alert("상품 ID가 없습니다. 메인으로 이동합니다.");
+          location.href = "../index.html";
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `https://api.wenivops.co.kr/services/open-market/products/${productId}/`
+          );
+          const product = await response.json();
+          renderProductDetail(product);
+        } catch (error) {
+          console.error("상세 정보를 가져오는데 실패했습니다:", error);
+        }
+      }
+
+      function renderProductDetail(product) {
+        productPrice = product.price;
+
+        // 모든 선택자를 케밥 케이스(-)로 수정 완료
+        const productImg = document.querySelector(".product-img img");
+        const storeName = document.querySelector(".store-name"); // store_name -> store-name
+        const productTit = document.querySelector(".product-tit");
+        const productPriceElement = document.querySelector(".product-price");
+        const deliveryInfo = document.querySelector(".delivery-info");
+        const totalPrice = document.querySelector(".total-price");
+        const totalCount = document.querySelector(".total-count strong");
+
+        // 데이터 안전하게 주입
+        if (productImg) {
+          productImg.src = product.image;
+          productImg.alt = product.name;
+        }
+        if (storeName) storeName.textContent = product.seller.store_name;
+        if (productTit) productTit.textContent = product.name;
+
+        // 가격 및 배송비 처리
+        const formattedPrice = product.price.toLocaleString();
+        if (productPriceElement) {
+          productPriceElement.innerHTML = `${formattedPrice}<span class="unit">원</span>`;
+        }
+        if (totalPrice) totalPrice.textContent = formattedPrice;
+        if (totalCount) totalCount.textContent = "1"; // 초기 수량 1개 설정
+
+        const method =
+          product.shipping_method === "PARCEL" ? "택배배송" : "직접배송";
+        const fee =
+          product.shipping_fee === 0
+            ? "무료배송"
+            : `${product.shipping_fee.toLocaleString()}원`;
+        if (deliveryInfo) deliveryInfo.textContent = `${method} / ${fee}`;
+      }
+
+      getProductDetail();
+    </script>
+    <script src="../assets/js/pages/product-detail.js"></script>
+  </body>
 </html>
