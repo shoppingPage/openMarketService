@@ -9,8 +9,8 @@
 
 ### 2. CSS Convention
 
-- **Naming**: **BEM (Block Element Modifier)** 패턴을 사용합니다.
-  - `.block__element--modifier` (예: `.card__btn--active`)
+- **Naming**: **Kebab case** 패턴을 사용합니다.
+  - (예: `.card-btn-active`)
 - **속성 선언 순서**:
   1. **Layout**: `display`, `position`, `flex`, `z-index`
   2. **Box Model**: `width`, `height`, `margin`, `padding`
