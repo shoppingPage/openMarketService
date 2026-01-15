@@ -175,6 +175,7 @@
 
 /* 상품 정보 텍스트 */
 .brand-name {
+  display: block;
   font-size: 1.4rem;
   color: var(--input-txt-color);
   margin-bottom: 10px;
@@ -191,6 +192,11 @@
   font-size: 2.4rem;
   font-weight: 700;
   color: var(--text-color);
+}
+
+.product-price .amount {
+  font-size: 2.4rem;
+  font-weight: 700;
 }
 
 .product-price .unit {
