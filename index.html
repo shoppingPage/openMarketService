@@ -1,128 +1,91 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>쇼핑 리스트</title>
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/font.css" />
-    <link rel="stylesheet" href="assets/css/root.css" />
-    <link rel="stylesheet" href="assets/css/pages/product.css" />
+    <title>HODU - 쇼핑몰</title>
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/root.css" />
+    <link rel="stylesheet" href="./assets/css/font.css" />
+    <link rel="stylesheet" href="./assets/css/pages/product.css" />
   </head>
   <body>
-    <header>
-      <nav class="top-nav-bar">
-        <h1>
-          <a href="#">
-            <img
-              src="assets/images/Logo-hodu.png"
-              alt="호두몰 로고"
-              class="logo-hodu"
-            />
-          </a>
-        </h1>
-        <form role="search" class="search-form">
-          <label for="site-search" class="scr-only">사이트 검색</label>
-          <input
-            type="search"
-            id="site-search"
-            class="search-input"
-            placeholder="상품을 검색해보세요!"
-          />
-          <button type="submit" class="search-btn">
-            <img src="assets/images/icon-search.svg" alt="#" />
-          </button>
-        </form>
-        <ul class="user-menu">
-          <li class="shopping-cart">
-            <a href="#"
-              ><img
-                src="assets/images/icon-shopping-bag.svg"
-                alt="#"
-              />장바구니</a
-            >
-          </li>
-          <li class="my-page">
-            <a href="#"
-              ><img src="assets/images/icon-user-2.svg" alt="#" />마이페이지</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section class="hero-section event-banner">
-        <h2 class="scr-only">쇼핑 리스트 이벤트 배너</h2>
-        <button class="button-left">
-          <img src="assets/images/icon-rhigt-arrow.svg" alt="" /></button
-        ><button class="button-right">
-          <img src="assets/images/icon-rhigt-arrow.svg" alt="" />
-        </button>
+    <header class="main-header">
+      <section class="container header-content">
+        <div class="header-first">
+          <h1 class="logo">
+            <a href="/"
+              ><img src="./assets/images/Logo-hodu.png" alt="HODU 로고"
+            /></a>
+          </h1>
+          <form class="search-form" role="search">
+            <fieldset>
+              <legend class="scr-only">상품 검색</legend>
+              <input
+                type="search"
+                placeholder="상품을 검색해보세요!"
+                class="search-input"
+              />
+              <button type="submit" class="search-btn">
+                <img src="./assets/images/icon-search.svg" alt="검색하기" />
+              </button>
+            </fieldset>
+          </form>
+        </div>
+
+        <nav class="user-navigation">
+          <ul class="nav-list">
+            <li>
+              <a href="/cart" class="nav-link">
+                <img
+                  src="./assets/images/icon-shopping-cart-2.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span>장바구니</span>
+              </a>
+            </li>
+            <li>
+              <a href="/login" class="nav-link">
+                <img
+                  src="./assets/images/icon-user-2.svg"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span>로그인</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </section>
-      <section class="shopping-list-section">
-        <h2 class="scr-only">상품 리스트</h2>
-        <ul class="product-list-container">
-          <li class="product-item">
-            <a href="#">
-              <img src="assets/images/product-img1.png" alt="#" />
-              <p class="seller">우당탕탕 라이캣의 실험실</p>
-              <p class="product-name">Hack Your Life 개발자 노트북 파우치</p>
-              <div class="price">
-                <p class="price-val">29,000</p>
-                <p>원</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="#">
-              <img src="assets/images/product-img2.png" alt="#" />
-              <p class="seller">제주코딩베이스캠프</p>
-              <p class="product-name">네 개발잡니다 개발자키링 금속키링</p>
-              <div class="price">
-                <p class="price-val">29,000</p>
-                <p>원</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="#">
-              <img src="assets/images/product-img3.png" alt="#" />
-              <p class="seller">백엔드글로벌</p>
-              <p class="product-name">딥러닝 개발자 무릎 담요</p>
-              <div class="price">
-                <p class="price-val">29,000</p>
-                <p>원</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="#">
-              <img src="assets/images/product-img4.png" alt="#" />
-              <p class="seller">코딩앤유</p>
-              <p class="product-name">우당탕탕 라이캣의 실험실 스티커</p>
-              <div class="price">
-                <p class="price-val">29,000</p>
-                <p>원</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="#">
-              <img src="assets/images/product-img5.png" alt="#" />
-              <p class="seller">파이썬스쿨</p>
-              <p class="product-name">
-                버그를 Java라 버그잡는 개리씨 키링 개발자 키링...
-              </p>
-              <div class="price">
-                <p class="price-val">29,000</p>
-                <p>원</p>
-              </div>
-            </a>
-          </li>
-        </ul>
+    </header>
+
+    <main>
+      <section class="hero-banner" aria-label="주요 프로모션">
+        <h2 class="scr-only">주요 프로모션</h2>
+        <div class="slider-controls">
+          <button class="prev-btn">
+            <img src="./assets/images/icon-rhigt-arrow.svg" alt="이전 배너" />
+          </button>
+          <button class="next-btn">
+            <img src="./assets/images/icon-rhigt-arrow.svg" alt="다음 배너" />
+          </button>
+        </div>
+        <div class="indicator" role="tablist">
+          <button role="tab" aria-selected="true" class="dot active">
+            <span class="scr-only">1번 배너</span>
+          </button>
+          <button role="tab" aria-selected="false" class="dot">
+            <span class="scr-only">2번 배너</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="product-section container">
+        <h2 class="scr-only">추천 상품 목록</h2>
+        <div id="product-container" class="product-grid"></div>
       </section>
     </main>
-    <footer></footer>
-    <script src="assets/js/pages/product.js"></script>
+
+    <script src="./assets/js/pages/product.js"></script>
   </body>
 </html>
