@@ -1,62 +1,38 @@
-// This is app.js
-document.addEventListener("DOMContentLoaded", () => {
-  // --- Product Detail Page ---
-  const quantityInput = document.querySelector(".quantity-selector input");
-  const plusButton = document.querySelector(".quantity-selector .plus");
-  const minusButton = document.querySelector(".quantity-selector .minus");
-  const totalPriceElement = document.querySelector(".total-price");
-  const totalQuantityElement = document.querySelector(
-    ".total-count .color-point"
-  );
-  const productPriceElement = document.querySelector(".product-price");
+const productContainer = document.getElementById("product-container");
 
-  if (
-    quantityInput &&
-    plusButton &&
-    minusButton &&
-    totalPriceElement &&
-    totalQuantityElement &&
-    productPriceElement
-  ) {
-    const unitPrice = parseInt(
-      productPriceElement.innerText.replace(/[^0-9]/g, "")
+async function fetchAndRender() {
+  try {
+    const res = await fetch(
+      "https://api.wenivops.co.kr/services/open-market/products/"
     );
+    const { results } = await res.json();
 
-    const updateTotalPrice = () => {
-      const quantity = parseInt(quantityInput.value);
-      const totalPrice = unitPrice * quantity;
-      totalPriceElement.innerText = totalPrice.toLocaleString();
-      totalQuantityElement.innerText = quantity;
-    };
-
-    plusButton.addEventListener("click", () => {
-      quantityInput.value = parseInt(quantityInput.value) + 1;
-      updateTotalPrice();
-    });
-
-    minusButton.addEventListener("click", () => {
-      const currentValue = parseInt(quantityInput.value);
-      if (currentValue > 1) {
-        quantityInput.value = currentValue - 1;
-        updateTotalPrice();
-      }
-    });
-
-    updateTotalPrice();
+    productContainer.innerHTML = results
+      .map(
+        (product) => `
+      <article class="product-item">
+        <figure class="product-image">
+          <img src="${product.image}" alt="${product.product_name} 이미지">
+        </figure>
+        
+        <div class="product-info">
+          <span class="brand-name">${product.store_name}</span>
+          <h3 class="product-name">
+            <a href="product-detail/index.html?product_id=${
+              product.product_id
+            }">${product.product_name}</a>
+          </h3>
+          <p class="product-price">
+            <span class="amount">${product.price.toLocaleString()}</span><span class="unit">원</span>
+          </p>
+        </div>
+      </article>
+    `
+      )
+      .join("");
+  } catch (err) {
+    console.error("상품을 불러오지 못했습니다.", err);
   }
+}
 
-  const tabs = document.querySelectorAll(".product-tabs .tab-list li");
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", (event) => {
-      event.preventDefault();
-      tabs.forEach((t) => t.classList.remove("active"));
-      tab.classList.add("active");
-    });
-  });
-
-  // --- Main Page ---
-  const productLinks = document.querySelectorAll(".product-item a");
-  productLinks.forEach((link) => {
-    link.href = "../product-detail/index.html";
-  });
-});
+fetchAndRender();
