@@ -1,3 +1,90 @@
+.main-header {
+  background-color: var(--background-color);
+  border-bottom: var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 90px;
+}
+
+.header-content {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  gap: 30px;
+}
+
+.header-first {
+  display: flex;
+  justify-content: left;
+  gap: 30px;
+}
+
+.logo img {
+  width: 124px;
+  vertical-align: middle;
+}
+
+/* 검색창 영역 */
+.search-form {
+  flex-grow: 1;
+  max-width: 400px;
+  min-width: 300px;
+}
+
+.search-form fieldset {
+  border: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  height: 46px;
+  padding: 0 50px 0 22px;
+  border: 2px solid var(--point-color);
+  border-radius: 50px;
+  font-size: 1.6rem;
+  outline: none;
+}
+
+.search-btn {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+}
+
+.search-btn img {
+  width: 28px;
+  height: 28px;
+}
+
+/* 네비게이션 영역 */
+.nav-list {
+  display: flex;
+  gap: 26px;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--input-txt-color);
+  font-size: 1.2rem;
+}
+
+.nav-link img {
+  width: 32px;
+  height: 32px;
+}
+
 /* MAIN */
 main {
   height: 100%;
