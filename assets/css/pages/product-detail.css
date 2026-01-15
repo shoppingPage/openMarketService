@@ -22,21 +22,21 @@ main {
   height: 600px;
   flex-shrink: 0;
   border-radius: 0;
-  overflow: hidden; 
+  overflow: hidden;
   background-color: var(--gray-color);
 }
 
 .product-img img {
   width: 100%;
-  height: 100%; 
+  height: 100%;
   object-fit: cover;
   border-radius: 0;
 }
 
 .product-info {
   flex: 1;
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   height: 600px;
 }
 
@@ -63,14 +63,14 @@ main {
   font-size: 3.6rem;
   font-weight: 700;
   color: var(--text-color);
-  margin-bottom: 138px; 
+  margin-bottom: 138px;
   display: flex;
   align-items: baseline;
 }
 
 .product-price .unit {
-  font-size: 1.8rem; 
-  font-weight: 400; 
+  font-size: 1.8rem;
+  font-weight: 400;
   margin-left: 2px;
 }
 
@@ -90,7 +90,7 @@ main {
   display: flex;
   align-items: center;
   width: 150px;
-  border: 1px solid #C4C4C4;
+  border: 1px solid #c4c4c4;
   border-radius: 5px;
   overflow: visible;
 }
@@ -111,19 +111,19 @@ main {
 
 .quantity-selector button img {
   width: 20px;
-  height: 20px; 
+  height: 20px;
   display: block;
 }
 
 .quantity-selector button:hover {
-  background-color: var(--gray-color); 
+  background-color: var(--gray-color);
 }
 
 .quantity-selector .minus {
-  border-right: 1px solid #C4C4C4;
+  border-right: 1px solid #c4c4c4;
 }
 .quantity-selector .plus {
-  border-left: 1px solid #C4C4C4;
+  border-left: 1px solid #c4c4c4;
 }
 
 .quantity-selector input {
@@ -200,35 +200,35 @@ main {
 .unit-green {
   font-size: 1.8rem;
   font-weight: 400;
-  color: var(--point-color); 
-  margin-left: 2px; 
+  color: var(--point-color);
+  margin-left: 2px;
 }
 
 .action-buttons {
-  display: flex; 
-  gap: 14px; 
-  margin-top: 22px; 
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
 }
 
 .action-buttons button {
-  flex: 1; 
-  height: 60px; 
+  flex: 1;
+  height: 60px;
   border-radius: 5px;
   font-size: 1.8rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 0; 
+  padding: 0;
 }
 
 .btn-buy {
-  background-color: var(--point-color); 
-  color: var(--background-color); 
-  border: none; 
+  background-color: var(--point-color);
+  color: var(--background-color);
+  border: none;
 }
 
 .btn-buy:hover {
-  background-color: #1da93d; 
+  background-color: #1da93d;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(33, 191, 72, 0.3);
 }
@@ -286,7 +286,7 @@ main {
 
 .footer {
   width: 100%;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   padding: 60px 0 63px;
   margin-top: auto;
 }
@@ -362,7 +362,7 @@ main {
 
 .footer-divider {
   border: none;
-  border-top: 1px solid #C4C4C4;
+  border-top: 1px solid #c4c4c4;
   margin: 0 0 30px 0;
 }
 
@@ -381,7 +381,7 @@ main {
   font-size: 1.4rem;
   color: #767676;
   font-weight: 400;
-  line-height: 1.5; 
+  line-height: 1.5;
   margin: 0;
 }
 
