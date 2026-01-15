@@ -1,4 +1,5 @@
 /* 기본 리셋 */
+/* 기본 리셋 */
 
 * {
   margin: 0;
@@ -41,14 +42,6 @@ img {
   margin: -1px;
   overflow: hidden;
 }
-
-input {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  color: #ffffff;
-}
-
 button {
   background-color: inherit;
   cursor: pointer;

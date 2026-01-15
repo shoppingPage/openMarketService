@@ -3,126 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>쇼핑 리스트</title>
+    <title>딥러닝 개발자 무릎 담요</title>
     <link rel="stylesheet" href="../assets/css/reset.css" />
     <link rel="stylesheet" href="../assets/css/font.css" />
     <link rel="stylesheet" href="../assets/css/root.css" />
-    <link rel="stylesheet" href="../assets/css/pages/product.css" />
+    <link rel="stylesheet" href="../assets/css/pages/product-detail.css" />
   </head>
   <body>
-    <header>
-      <nav class="top-nav-bar">
-        <h1>
-          <a href="#">
-            <img
-              src="../assets/images/Logo-hodu.png"
-              alt="호두몰 로고"
-              class="logo-hodu"
-            />
-          </a>
-        </h1>
-        <form role="search" class="search-form">
-          <label for="site-search" class="scr-only">사이트 검색</label>
-          <input
-            type="search"
-            id="site-search"
-            class="search-input"
-            placeholder="상품을 검색해보세요!"
-          />
-          <button type="submit" class="search-btn">
-            <img src="../assets/images/icon-search.svg" alt="#" />
-          </button>
-        </form>
-        <ul class="user-menu">
-          <li class="shopping-cart">
-            <a href="#"
-              ><img
-                src="../assets/images/icon-shopping-bag.svg"
-                alt="#"
-              />장바구니</a
-            >
-          </li>
-          <li class="my-page">
-            <a href="#"
-              ><img
-                src="../assets/images/icon-user-2.svg"
-                alt="#"
-              />마이페이지</a
-            >
-          </li>
+    <header></header>
+    <main class="product-detail">
+      <section class="product-layout">
+        <h2 class="scr-only">상품 상세 정보</h2>
+        <div class="product-img">
+          <img src="#" alt="딥러닝 개발자 무릎 담요 제품 이미지" />
+        </div>
+        <div class="product-info">
+          <p class="store-name">백엔드글로벌</p>
+          <h3 class="product-tit">딥러닝 개발자 무릎 담요</h3>
+          <p class="product-price">17,500<span class="unit">원</span></p>
+          <p class="delivery-info">택배배송 / 무료배송</p>
+          <hr class="divider" />
+
+          <div class="quantity-selector">
+            <button type="button" class="minus" aria-label="수량 감소">
+              -
+            </button>
+            <input type="number" value="1" readonly title="구매 수량" />
+            <button type="button" class="plus" aria-label="수량 증가">+</button>
+          </div>
+
+          <hr class="divider" />
+
+          <div class="total-price-wrap">
+            <span class="total-label">총 상품 금액</span>
+            <div class="total-data">
+              <span class="total-count"
+                >총 수량 <strong class="color-point">1</strong>개</span
+              >
+              <span class="total-price">17,500</span>
+              <p class="unit-green">원</p>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button type="button" class="btn-buy">바로 구매</button>
+            <button type="button" class="btn-cart">장바구니</button>
+          </div>
+        </div>
+      </section>
+
+      <nav class="product-tabs">
+        <ul class="tab-list">
+          <li class="active"><a href="#detail">버튼</a></li>
+          <li><a href="#review">리뷰</a></li>
+          <li><a href="#qna">Q&A</a></li>
+          <li><a href="#return">반품/교환정보</a></li>
         </ul>
       </nav>
-    </header>
-    <main>
-      <section class="hero-section event-banner">
-        <h2 class="scr-only">쇼핑 리스트 이벤트 배너</h2>
-        <button class="button-left">
-          <img src="../assets/images/icon-rhigt-arrow.svg" alt="" /></button
-        ><button class="button-right">
-          <img src="../assets/images/icon-rhigt-arrow.svg" alt="" />
-        </button>
-      </section>
-      <section class="shopping-list-section">
-        <h2 class="scr-only">상품 리스트</h2>
-        <ul class="product-list-container">
-          <li class="product-item">
-            <a href="#">
-              <img src="../assets/images/product-img1.png" alt="#" />
-              <p class="seller">우당탕탕 라이캣의 실험실</p>
-              <p class="product-name">Hack Your Life 개발자 노트북 파우치</p>
-              <div class="price">
-                <p class="price-val">29,000</p>
-                <p>원</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="#">
-              <img src="../assets/images/product-img2.png" alt="#" />
-              <p class="seller">우당탕탕 라이캣의 실험실</p>
-              <p class="product-name">Hack Your Life 개발자 노트북 파우치</p>
-              <div class="price">
-                <p class="price-val">29,000</p>
-                <p>원</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="#">
-              <img src="../assets/images/product-img3.png" alt="#" />
-              <p class="seller">우당탕탕 라이캣의 실험실</p>
-              <p class="product-name">Hack Your Life 개발자 노트북 파우치</p>
-              <div class="price">
-                <p class="price-val">29,000</p>
-                <p>원</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="#">
-              <img src="../assets/images/product-img4.png" alt="#" />
-              <p class="seller">우당탕탕 라이캣의 실험실</p>
-              <p class="product-name">Hack Your Life 개발자 노트북 파우치</p>
-              <div class="price">
-                <p class="price-val">29,000</p>
-                <p>원</p>
-              </div>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="#">
-              <img src="../assets/images/product-img5.png" alt="#" />
-              <p class="seller">우당탕탕 라이캣의 실험실</p>
-              <p class="product-name">Hack Your Life 개발자 노트북 파우치</p>
-              <div class="price">
-                <p class="price-val">29,000</p>
-                <p>원</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </section>
     </main>
-    <footer></footer>
+    <script src="../assets/js/pages/product.js"></script>
   </body>
 </html>
