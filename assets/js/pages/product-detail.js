@@ -186,24 +186,22 @@
         elements.btnPlus.addEventListener('click', increaseQuantity);
         elements.btnMinus.addEventListener('click', decreaseQuantity);
 
+        // 장바구니 버튼 클릭
+        elements.btnCart.addEventListener('click', () => {
+            window.location.href = '../cart/';
+        });
+
         // 탭 이벤트 리스너
         initTabListeners();
     }
 
     // ===== 탭 기능 =====
     function initTabListeners() {
-        const tabList = document.querySelector('.tab-list');
         const tabLinks = document.querySelectorAll('.tab-list a');
-        const tabContents = document.querySelectorAll('.tab-content');
 
         tabLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-
-                const targetId = link.getAttribute('data-tab');
-                const targetContent = document.getElementById(targetId);
-
-                if (!targetContent) return;
 
                 // 모든 탭 비활성화
                 tabLinks.forEach(tab => {
@@ -211,23 +209,9 @@
                     tab.setAttribute('aria-selected', 'false');
                 });
 
-                // 모든 콘텐츠 숨기기
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                });
-
                 // 클릭한 탭 활성화
                 link.parentElement.classList.add('active');
                 link.setAttribute('aria-selected', 'true');
-
-                // 해당 콘텐츠 표시
-                targetContent.classList.add('active');
-
-                // 스크롤 이동 (탭 영역으로)
-                const tabNav = document.querySelector('.product-tabs');
-                if (tabNav) {
-                    tabNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
             });
         });
     }
