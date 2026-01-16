@@ -6,6 +6,11 @@
   color: var(--input-txt-color); /* 기본 텍스트 색상 */
 }
 
+/* 장바구니 페이지 활성화 상태 */
+.nav-link.active {
+  color: var(--point-color);
+}
+
 /* 로그인 완료 상태 (is-login 클래스가 붙었을 때) */
 #nav-user-status.is-login .nav-link {
   color: var(--point-color); /* 텍스트를 초록색으로 */
