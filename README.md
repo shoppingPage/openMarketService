@@ -1,43 +1,72 @@
-## 🎨 Coding Convention
+# 🛒 오픈마켓 서비스 프로젝트 (Open Market Service)
 
-프로젝트의 유지보수와 협업을 위해 아래의 코딩 컨벤션을 준수합니다.
-
-### 1. HTML Convention
-
-- **소문자 사용**: 모든 태그와 속성은 소문자로 작성합니다.
-- **시맨틱 태그**: 의미 있는 마크업을 위해 `<div>`보다는 `<header>`, `<main>`, `<footer>`, `<section>` 등 시맨틱 태그 사용을 지향합니다.
-
-### 2. CSS Convention
-
-- **Naming**: **Kebab case** 패턴을 사용합니다.
-  - (예: `.card-btn-active`)
-- **속성 선언 순서**:
-  1. **Layout**: `display`, `position`, `flex`, `z-index`
-  2. **Box Model**: `width`, `height`, `margin`, `padding`
-  3. **Visual**: `background`, `border`, `color`
-  4. **Typography**: `font-family`, `font-size`, `text-align`
-- **단위**: 반응형을 고려하여 `rem`, `%`, `vw/vh` 사용을 권장하며, 고정 크기에는 `px`를 사용합니다.
-
-### 3. JavaScript Convention
-
-- **Variable**:
-  - 기본적으로 `const`를 사용하며, 재할당이 필요한 경우에만 `let`을 사용합니다. (`var` 사용 금지)
-  - 변수명과 함수명은 **camelCase**를 사용합니다. (예: `getProductData`)
-  - 상수는 **UPPER_SNAKE_CASE**를 사용합니다. (예: `API_BASE_URL`)
-- **DOM**:
-  - DOM 요소를 담는 변수는 접두어 `$`를 사용합니다. (예: `const $submitBtn = ...`)
-- **Function**:
-  - 가급적 화살표 함수(`arrow function`)를 사용합니다.
-  - 비동기 로직은 `async / await` 구문을 사용하여 처리합니다.
-- **Syntax**:
-  - 문장 끝에 반드시 세미콜론(`;`)을 사용합니다.
-  - 문자열은 작은따옴표(`'`) 또는 백틱(`` ` ``) 사용을 지향합니다.
+> **판매자와 구매자를 잇는 커머스 플랫폼** > 본 프로젝트는 Vanilla JS와 REST API를 활용하여 멀티 페이지 애플리케이션(MPA) 환경에서의 상품 등록, 결제 및 CRUD를 직접 구현한 팀 프로젝트입니다.
 
 ---
 
-## 🛠 Tech Stack
+## 1. 🛠 Tech Stack
 
-- **Markup**: HTML5
-- **Styling**: CSS3
-- **Scripting**: JavaScript (ES6+)
-- **HTTP Client**: Fetch API
+- **Markup:** HTML5
+- **Styling:** CSS3
+- **Scripting:** JavaScript (ES6+)
+- **HTTP Client:** Fetch API
+
+---
+
+## 2. 📝 Coding Convention
+
+프로젝트의 유지보수와 원활한 협업을 위해 아래의 컨벤션을 준수하였습니다.
+
+### 🎨 HTML & CSS
+
+- **HTML:** 모든 태그와 속성은 소문자로 작성하며, 시맨틱 태그(`<header>`, `<main>`, `<footer>` 등) 사용을 지향합니다.
+- **Naming:** CSS 클래스명은 `Kebab-case`를 사용합니다. (예: `.card-btn-active`)
+- **Property Order:** Layout(display, position) → Box Model(width, margin) → Visual(background, color) → Typography 순으로 작성합니다.
+- **Unit:** 반응형을 위해 `rem`, `%`, `vw/vh`를 권장하며, 고정 크기에만 `px`를 사용합니다.
+
+### 💻 JavaScript
+
+- **Variable:** `const` 사용을 원칙으로 하며, 변수/함수명은 `camelCase`, 상수는 `UPPER_SNAKE_CASE`를 사용합니다.
+- **DOM:** DOM 요소를 담는 변수는 접두어 `$`를 사용합니다. (예: `const $submitBtn`)
+- **Syntax:** 화살표 함수와 `async / await` 구문을 사용하며, 모든 문장 끝에는 세미콜론(`;`)을 붙입니다.
+
+---
+
+## 3. 👥 팀원 및 역할 분담
+
+| 이름              | 역할             | 담당 기능 구현                                                |
+| :---------------- | :--------------- | :------------------------------------------------------------ |
+| **한유리 (팀장)** | 메인 페이지      | 프로덕트 페이지 목록 렌더링, GNB 검색/장바구니 로직, API 연동 |
+| **김성민**        | 회원가입 페이지  | 구매자 회원가입 유효성 검사, 아이디 중복 확인 API 연동        |
+| **이영미**        | 로그인 페이지    | 로그인 예외 처리(Focus 이벤트), 세션 유지 및 리다이렉트       |
+| **변슬기**        | 상품 상세 페이지 | 상품 상세 데이터 Fetching, 수량 변경 및 총 가격 계산 로직     |
+
+---
+
+## 4. 🚀 핵심 기능 상세
+
+### 🔐 1) 로그인 및 회원가입
+
+- **로그인 유효성:** 미입력 시 해당 항목 `focus` 이벤트 발생, 일치하지 않을 시 비밀번호창 초기화 및 `focus`.
+- **회원가입:** 모든 입력 및 이용약관 동의 시에만 가입 가능. 아이디 중복 확인 기능 포함.
+- **권한 분리:** 구매자/판매자 탭 구분을 통해 각각의 회원 체계 관리.
+
+### 🛍️ 2) 상품 목록 및 상세 페이지
+
+- **목록:** API를 통해 실시간 상품 정보(판매자, 상품명, 가격) 노출.
+- **상세 정보:** `productId` 기반의 데이터 로드.
+- **수량 조절:** 재고 수량 초과 시 `+` 버튼 비활성화 및 수량에 따른 총 가격 실시간 계산.
+- **중복 방지:** 이미 선택된 상품의 중복 추가 방지 로직 적용.
+
+### 🏗️ 3) 공통 컴포넌트 (GNB, Footer)
+
+- **컴포넌트화:** 헤더와 푸터를 별도 JS로 분리하여 관리 및 각 페이지 동적 연결.
+- **GNB 유동성:** 비로그인 유저가 장바구니 접근 시 로그인 안내 모달 노출.
+
+---
+
+## 5. 💡 추가 발표 포인트 (Tips)
+
+- **MPA 구현 방식:** 각 페이지 간 데이터 전달 방식(URL 파라미터 등) 설명.
+- **Vanilla JS의 도전:** 프레임워크 없이 컴포넌트를 분리하고 관리하며 느꼈던 기술적 성찰.
+- **UX 디테일:** 사용자 입력 오류 시 `alert`만 띄우지 않고 `focus`를 주는 등 사용자 경험을 고려한 부분 강조.
