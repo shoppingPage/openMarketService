@@ -1,7 +1,7 @@
 /* ==========================================
    로그인 페이지 레이아웃
 ========================================== */
-.login__wrap {
+.login-wrap {
   width: 100%;
   max-width: 550px;
   margin: 0 auto;
@@ -15,143 +15,103 @@
 /* ==========================================
    로고
 ========================================== */
-.login__logo {
-  margin-bottom: 70px;
+.login-logo {
+  margin-bottom: 50px;
 }
 
-.login__logo img {
+.login-logo a {
+  display: block;
+}
+
+.login-logo img {
   width: 238px;
   height: auto;
 }
 
 /* ==========================================
-   탭 (구매회원/판매회원 로그인)
+   타이틀
 ========================================== */
-.login__tabs {
-  width: 100%;
-  display: flex;
-  border: 1px solid #c4c4c4;
-  border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  overflow: hidden;
-}
-
-.login__tab {
-  flex: 1;
-  padding: 20px;
-  background-color: var(--background-color);
-  border: none;
-  font-size: 1.8rem;
-  font-weight: 500;
-  cursor: pointer;
-  color: var(--input-txt-color);
-  transition: all 0.3s;
-  position: relative;
-}
-
-.login__tab:first-child {
-  border-right: 1px solid #c4c4c4;
-}
-
-.login__tab.active {
-  background-color: var(--point-color);
-  color: var(--background-color);
+.login-title {
+  font-size: 2.4rem;
   font-weight: 700;
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 40px;
 }
 
 /* ==========================================
    로그인 카드
 ========================================== */
-.login__card {
+.login-card {
   width: 100%;
   background-color: var(--background-color);
   border: 1px solid #c4c4c4;
-  border-top: none;
-  border-radius: 0 0 10px 10px;
-  padding: 16px;       
+  border-radius: 10px;
+  padding: 34px 35px 36px;
 }
-
 
 /* ==========================================
    폼 스타일
 ========================================== */
-.login__form {
+.login-form {
   display: flex;
   flex-direction: column;
 }
 
-.login__field {
+.login-field {
   display: flex;
   flex-direction: column;
-  margin-bottom: 12px;
-}
-
-.login__label {
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: var(--input-txt-color);
-  margin-bottom: 10px;
-}
-
-.login__title { 
-  font-size: 3.2rem;     /* ✅ 24px */
-  font-weight: 700;
-  margin-top: 20px;
-  margin-bottom: 32px;  /* 박스 줄어든 만큼 아래 여백도 살짝 감소 */
-  text-align: center;
-  color: var(--text-color);
+  margin-bottom: 6px;
 }
 
 /* ==========================================
    입력 필드
 ========================================== */
-.login__input {
+.login-input {
   width: 100%;
-  padding: 14px 0 12px;     /* ⬆️ 위 여백 살짝 더 */
+  padding: 16px 0;
   border: none;
-  border-bottom: var(--border);
-
-  font-size: 1.6rem;       /* 16px */
+  border-bottom: 1px solid #c4c4c4;
+  font-size: 1.6rem;
   font-weight: 400;
   color: var(--text-color);
-
   background-color: transparent;
   transition: border-color 0.3s;
 }
 
-.login__input::placeholder {
+.login-input::placeholder {
   color: var(--input-txt-color);
 }
 
-.login__input:focus {
+.login-input:focus {
   outline: none;
   border-bottom-color: var(--point-color);
 }
 
-.login__input.error {
+.login-input.error {
   border-bottom-color: var(--warning-txt-color);
 }
 
 /* ==========================================
    경고 메시지
 ========================================== */
-.login__warn {
+.login-warn {
   min-height: 20px;
-  margin: 16px 0 12px;   /* ⬆️ 위·아래 간격 분리 */
+  margin: 16px 0 0;
   font-size: 1.4rem;
   color: var(--warning-txt-color);
   display: none;
   line-height: 1.4;
 }
 
-.login__warn.show {
+.login-warn.show {
   display: block;
 }
 
 /* ==========================================
    로그인 버튼
 ========================================== */
-.login__btn {
+.login-btn {
   width: 100%;
   padding: 19px;
   background-color: var(--point-color);
@@ -161,37 +121,37 @@
   font-size: 1.8rem;
   font-weight: 700;
   cursor: pointer;
-  margin-top: 24px;
+  margin-top: 26px;
   transition: opacity 0.3s;
 }
 
-.login__btn:hover {
+.login-btn:hover {
   opacity: 0.9;
 }
 
-.login__btn:active {
+.login-btn:active {
   opacity: 0.8;
 }
 
 /* ==========================================
    하단 링크 (회원가입, 비밀번호 찾기)
 ========================================== */
-.login__links {
+.login-links {
   text-align: center;
   margin-top: 30px;
   font-size: 1.6rem;
 }
 
-.login__link {
+.login-link {
   color: var(--input-txt-color);
   transition: color 0.3s;
 }
 
-.login__link:hover {
+.login-link:hover {
   color: var(--text-color);
 }
 
-.login__divider {
+.login-divider {
   margin: 0 14px;
   color: var(--input-txt-color);
 }
@@ -200,24 +160,24 @@
    반응형 디자인
 ========================================== */
 @media (max-width: 600px) {
-  .login__wrap {
+  .login-wrap {
     padding: 60px 20px 20px;
   }
 
-  .login__logo {
-    margin-bottom: 50px;
+  .login-logo {
+    margin-bottom: 40px;
   }
 
-  .login__logo img {
+  .login-logo img {
     width: 180px;
   }
 
-  .login__card {
-    padding: 40px 24px 30px;
+  .login-card {
+    padding: 30px 24px;
   }
 
-  .login__tab {
-    font-size: 1.6rem;
-    padding: 16px;
+  .login-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
   }
 }
