@@ -117,5 +117,5 @@ document.getElementById('phone3').addEventListener('input', checkAllValid);
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     alert('구매자로 회원가입이 완료되었습니다!');
-    location.href = 'login.html';
+    location.href = '../login/index.html';
 });

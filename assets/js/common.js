@@ -100,3 +100,128 @@ async function loadHeader(basePath = './assets/', activePage = '') {
         console.error('Header 컴포넌트 로드 오류:', error);
     }
 }
+
+// ==========================================
+// JWT 토큰 관리 함수들
+// ==========================================
+
+/**
+ * 로컬 스토리지에서 access token을 가져옵니다.
+ * @returns {string|null} access token 또는 null
+ */
+function getAccessToken() {
+    return localStorage.getItem('access');
+}
+
+/**
+ * 로컬 스토리지에서 refresh token을 가져옵니다.
+ * @returns {string|null} refresh token 또는 null
+ */
+function getRefreshToken() {
+    return localStorage.getItem('refresh');
+}
+
+/**
+ * 로컬 스토리지에서 저장된 사용자 정보를 가져옵니다.
+ * @returns {object|null} 사용자 정보 객체 또는 null
+ */
+function getUserInfo() {
+    const userStr = localStorage.getItem('user');
+    return userStr ? JSON.parse(userStr) : null;
+}
+
+/**
+ * 사용자가 로그인 상태인지 확인합니다.
+ * @returns {boolean} 로그인 상태 여부
+ */
+function isLoggedIn() {
+    return !!getAccessToken();
+}
+
+/**
+ * Access token을 갱신합니다.
+ * @returns {Promise<string|null>} 새로운 access token 또는 null
+ */
+async function refreshAccessToken() {
+    try {
+        const refresh = getRefreshToken();
+        
+        if (!refresh) {
+            return null;
+        }
+
+        const response = await fetch('https://api.wenivops.co.kr/accounts/token/refresh/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ refresh })
+        });
+
+        const data = await response.json();
+
+        if (response.status === 200) {
+            localStorage.setItem('access', data.access);
+            return data.access;
+        } else {
+            handleLogout();
+            return null;
+        }
+        
+    } catch (error) {
+        console.error('토큰 갱신 오류:', error);
+        handleLogout();
+        return null;
+    }
+}
+
+/**
+ * 로그아웃 처리: 토큰과 사용자 정보를 삭제합니다.
+ */
+function handleLogout() {
+    localStorage.removeItem('access');
+    localStorage.removeItem('refresh');
+    localStorage.removeItem('user');
+    
+    // 로그인 페이지로 이동
+    if (!window.location.pathname.includes('login')) {
+        window.location.href = '../login/index.html';
+    }
+}
+
+/**
+ * API 요청 시 자동으로 authorization 헤더를 추가합니다.
+ * @param {string} url - 요청 URL
+ * @param {object} options - fetch 옵션
+ * @returns {Promise<Response>} fetch 응답
+ */
+async function fetchWithAuth(url, options = {}) {
+    const accessToken = getAccessToken();
+    
+    if (!accessToken) {
+        handleLogout();
+        return null;
+    }
+
+    const headers = {
+        'Content-Type': 'application/json',
+        ...options.headers,
+        'Authorization': `Bearer ${accessToken}`
+    };
+
+    let response = await fetch(url, { ...options, headers });
+
+    // 401 응답 (Unauthorized): access token 갱신 시도
+    if (response.status === 401) {
+        const newAccessToken = await refreshAccessToken();
+        
+        if (newAccessToken) {
+            // 새 토큰으로 재요청
+            headers['Authorization'] = `Bearer ${newAccessToken}`;
+            response = await fetch(url, { ...options, headers });
+        } else {
+            handleLogout();
+            return null;
+        }
+    }
+
+    return response;
+}
