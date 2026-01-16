@@ -1,0 +1,100 @@
+/* 전체 레이아웃 잡기 */
+.container-404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* 화면 전체 높이 사용 */
+  background-color: var(--background-color, #fff);
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center; /* 수직 중앙 정렬 */
+  gap: 50px; /* 아이콘과 텍스트 사이 간격 */
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* 이미지 영역 */
+.img-area {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* 이미지를 텍스트 쪽으로 붙임 */
+}
+
+.img-area img {
+  max-width: 100%;
+  width: 280px; /* 디자인 비율에 맞춰 조정 필요 */
+  height: auto;
+}
+
+/* 텍스트 영역 */
+.text-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.error-title {
+  font-size: 3.2rem; /* 제목 크기 */
+  font-weight: 700;
+  color: var(--text-color, #333);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.error-desc {
+  font-size: 1.6rem;
+  color: var(--input-txt-color, #767676);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* 버튼 그룹 */
+.btn-group {
+  display: flex;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px; /* 버튼 너비 고정 */
+  height: 60px;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none; /* a 태그 밑줄 제거 */
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* 메인으로 버튼 (초록색) */
+.btn-primary {
+  background-color: var(--point-color, #21bf48);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #1da93d; /* 호버 시 약간 어둡게 */
+  box-shadow: 0 4px 10px rgba(33, 191, 72, 0.2);
+}
+
+/* 이전 페이지 버튼 (흰색/테두리) */
+.btn-secondary {
+  background-color: #fff;
+  color: var(--input-txt-color, #767676);
+  border: 1px solid #c4c4c4;
+}
+
+.btn-secondary:hover {
+  background-color: #f9f9f9;
+  border-color: #b0b0b0;
+  color: var(--text-color, #333);
+}

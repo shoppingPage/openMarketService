@@ -40,7 +40,7 @@
     // ===== 4. API 호출 =====
     async function fetchProductData() {
         if (!PRODUCT_ID) {
-            alert('상품 ID가 없습니다.\n\nURL 형식: ?id=34');
+            window.location.href = "/404/";
             return null;
         }
 
@@ -50,14 +50,15 @@
             );
 
             if (!response.ok) {
-                throw new Error('상품을 찾을 수 없습니다.');
+                window.location.href = "/404/";
+                return null;
             }
 
             return await response.json();
 
         } catch (error) {
             console.error('API 에러:', error);
-            alert('상품 정보를 불러오는데 실패했습니다.');
+            window.location.href = "/404/";
             return null;
         }
     }

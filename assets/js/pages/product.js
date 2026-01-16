@@ -31,8 +31,7 @@ async function fetchAndRender() {
       .join("");
   } catch (err) {
     console.error("데이터 로딩 중 오류:", err);
-    productContainer.innerHTML =
-      '<p style="text-align:center; padding: 50px;">상품을 불러오는 데 실패했습니다.</p>';
+    window.location.href = "/404/";
   }
 }
 
@@ -49,7 +48,7 @@ fetchAndRender();
 
   let currentIndex = 0;
   let autoSlideInterval;
-  const AUTO_SLIDE_DELAY = 5000;
+  const AUTO_SLIDE_DELAY = 3000;
 
 
   function goToSlide(index) {
