@@ -181,16 +181,76 @@
         }
     }
 
-    // ===== 11. 이벤트 리스너 등록 =====
+    // ===== 11. 장바구니 추가 =====
+    async function addToCart() {
+        const token = getAccessToken();
+        if (!token) {
+            openLoginModal();
+            return;
+        }
+
+        try {
+            // 1. 먼저 장바구니 목록 조회하여 중복 확인
+            const cartResponse = await fetch('https://api.wenivops.co.kr/services/open-market/cart/', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!cartResponse.ok) {
+                throw new Error('장바구니 조회 실패');
+            }
+
+            const cartData = await cartResponse.json();
+            const cartItems = cartData.results || cartData || [];
+
+            // 2. 이미 장바구니에 있는 상품인지 확인
+            const existingItem = cartItems.find(item => item.product_id == PRODUCT_ID);
+
+            if (existingItem) {
+                // 이미 장바구니에 있는 상품
+                alert('이미 장바구니에 있는 상품입니다.');
+                return;
+            }
+
+            // 3. 장바구니에 추가
+            const addResponse = await fetch('https://api.wenivops.co.kr/services/open-market/cart/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    product_id: parseInt(PRODUCT_ID),
+                    quantity: productData.quantity
+                })
+            });
+
+            if (!addResponse.ok) {
+                throw new Error('장바구니 추가 실패');
+            }
+
+            // 4. 성공 시 장바구니로 이동할지 확인
+            if (confirm('장바구니에 상품을 담았습니다.\n장바구니로 이동하시겠습니까?')) {
+                window.location.href = '../cart/';
+            }
+
+        } catch (error) {
+            console.error('장바구니 추가 오류:', error);
+            alert('장바구니 추가에 실패했습니다.');
+        }
+    }
+
+    // ===== 13. 이벤트 리스너 등록 =====
     function initEventListeners() {
         elements.btnPlus.addEventListener('click', increaseQuantity);
         elements.btnMinus.addEventListener('click', decreaseQuantity);
 
-        // 장바구니 버튼 클릭 - 로그인 체크
+        // 장바구니 버튼 클릭 - 로그인 체크 후 장바구니 추가
         elements.btnCart.addEventListener('click', () => {
-            requireLogin(() => {
-                window.location.href = '../cart/';
-            });
+            requireLogin(addToCart);
         });
 
         // 바로구매 버튼 클릭 - 로그인 체크
@@ -205,7 +265,7 @@
         initTabListeners();
     }
 
-    // ===== 탭 기능 =====
+    // ===== 14. 탭 기능 =====
     function initTabListeners() {
         const tabLinks = document.querySelectorAll('.tab-list a');
 
@@ -226,7 +286,7 @@
         });
     }
 
-    // ===== 12. 초기화 =====
+    // ===== 15. 초기화 =====
     async function init() {
         // 로그인 모달 로드
         await loadLoginModal('../assets/');
@@ -238,7 +298,7 @@
         }
     }
 
-    // ===== 13. 실행 =====
+    // ===== 16. 실행 =====
     init();
 
 })();

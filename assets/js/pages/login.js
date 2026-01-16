@@ -5,38 +5,9 @@ const loginForm = document.getElementById('loginForm');
 const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
 const warnBox = document.getElementById('warnBox');
-const tabs = document.querySelectorAll('.login__tab');
-
-let currentLoginType = 'buyer'; // 기본값 (BUYER)
 
 // ==========================================
-// 2. 탭 전환 기능 (구매회원 / 판매회원)
-// ==========================================
-if (tabs.length > 0) {
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            // 모든 탭 활성화 해제
-            tabs.forEach(t => {
-                t.classList.remove('active');
-                t.setAttribute('aria-selected', 'false');
-            });
-            
-            // 선택한 탭 활성화
-            tab.classList.add('active');
-            tab.setAttribute('aria-selected', 'true');
-            
-            // 데이터 타입 업데이트 (buyer / seller)
-            currentLoginType = tab.dataset.type;
-            
-            // 상태 초기화
-            hideWarning();
-            clearInputErrors();
-        });
-    });
-}
-
-// ==========================================
-// 3. UI 제어 함수 (경고 및 에러 관리)
+// 2. UI 제어 함수 (경고 및 에러 관리)
 // ==========================================
 function showWarning(message) {
     if (warnBox) {
@@ -70,7 +41,7 @@ function clearInputErrors() {
 });
 
 // ==========================================
-// 4. API 로그인 시도 (Main Logic)
+// 3. API 로그인 시도 (Main Logic)
 // ==========================================
 async function performLogin(username, password) {
     try {
@@ -81,8 +52,7 @@ async function performLogin(username, password) {
             },
             body: JSON.stringify({
                 username: username,
-                password: password,
-                // login_type: currentLoginType.toUpperCase() // BUYER 또는 SELLER
+                password: password
             })
         });
 
@@ -93,7 +63,7 @@ async function performLogin(username, password) {
             localStorage.setItem('access', data.access);
             localStorage.setItem('refresh', data.refresh);
             localStorage.setItem('user', JSON.stringify(data.user));
-            
+
             handleLoginSuccess();
         } else {
             // 401 Unauthorized 또는 400 Bad Request 처리
@@ -105,17 +75,16 @@ async function performLogin(username, password) {
         }
     } catch (error) {
         console.error('로그인 중 오류 발생:', error);
-        // CORS 에러가 나면 이 블록이 실행됩니다.
-        showWarning('서버와의 연결이 원활하지 않습니다. CORS 확장 프로그램을 확인해 주세요.');
+        showWarning('서버와의 연결이 원활하지 않습니다.');
     }
 }
 
 // ==========================================
-// 5. 폼 제출 이벤트 리스너
+// 4. 폼 제출 이벤트 리스너
 // ==========================================
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const username = usernameInput.value.trim();
     const password = passwordInput.value.trim();
 
@@ -126,7 +95,7 @@ loginForm.addEventListener('submit', (e) => {
         usernameInput.focus();
         return;
     }
-    
+
     if (!password) {
         showWarning('비밀번호를 입력해 주세요.');
         showInputError(passwordInput);
@@ -139,16 +108,16 @@ loginForm.addEventListener('submit', (e) => {
 });
 
 // ==========================================
-// 6. 성공시 이동 처리
+// 5. 성공시 이동 처리
 // ==========================================
 function handleLoginSuccess() {
-    // 세션에 저장된 이동할 주소가 있으면 해당 주소로, 없으면 타입별 메인으로 이동
+    // 세션에 저장된 이동할 주소가 있으면 해당 주소로, 없으면 메인으로 이동
     const returnUrl = sessionStorage.getItem('returnUrl');
-    
-    if (returnUrl && !returnUrl.includes('login') && !returnUrl.includes('signup')) {
+
+    if (returnUrl && !returnUrl.includes('login') && !returnUrl.includes('join')) {
         sessionStorage.removeItem('returnUrl');
         window.location.href = returnUrl;
     } else {
-        window.location.href = (currentLoginType === 'buyer') ? '../index.html' : '../seller-center.html';
+        window.location.href = '/';
     }
 }
