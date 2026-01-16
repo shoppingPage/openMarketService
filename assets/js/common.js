@@ -259,3 +259,129 @@ async function fetchWithAuth(url, options = {}) {
 
     return response;
 }
+
+// ==========================================
+// 로그인 요청 모달 함수들
+// ==========================================
+
+/**
+ * 로그인 모달 컴포넌트를 로드합니다.
+ * @param {string} basePath - 에셋 기본 경로 (기본값: './assets/')
+ */
+async function loadLoginModal(basePath = './assets/') {
+    // 이미 로드된 경우 스킵
+    if (document.getElementById('login-modal')) {
+        return;
+    }
+
+    const componentPath = basePath.includes('../')
+        ? '../components/login-modal.html'
+        : './components/login-modal.html';
+
+    try {
+        const response = await fetch(componentPath);
+        if (!response.ok) {
+            throw new Error(`컴포넌트 로드 실패: ${componentPath}`);
+        }
+
+        let html = await response.text();
+
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+
+        // data-icon 속성을 가진 img 태그의 src를 basePath에 맞게 설정
+        tempDiv.querySelectorAll('img[data-icon]').forEach((img) => {
+            const iconName = img.getAttribute('data-icon');
+            img.src = `${basePath}images/${iconName}`;
+        });
+
+        // body에 모달 추가
+        document.body.insertAdjacentHTML('beforeend', tempDiv.innerHTML);
+
+        // 모달 이벤트 리스너 초기화
+        initLoginModalEvents(basePath);
+
+    } catch (error) {
+        console.error('로그인 모달 컴포넌트 로드 오류:', error);
+    }
+}
+
+/**
+ * 로그인 모달 이벤트 리스너를 초기화합니다.
+ * @param {string} basePath - 에셋 기본 경로
+ */
+function initLoginModalEvents(basePath = './assets/') {
+    const modal = document.getElementById('login-modal');
+    const closeBtn = document.getElementById('login-modal-close');
+    const cancelBtn = document.getElementById('btn-modal-cancel');
+    const confirmBtn = document.getElementById('btn-modal-confirm');
+
+    if (!modal) return;
+
+    // 닫기 버튼
+    closeBtn?.addEventListener('click', closeLoginModal);
+
+    // 아니오 버튼
+    cancelBtn?.addEventListener('click', closeLoginModal);
+
+    // 예 버튼 - 로그인 페이지로 이동
+    confirmBtn?.addEventListener('click', () => {
+        const loginPath = basePath.includes('../') ? '../login/' : './login/';
+        window.location.href = loginPath;
+    });
+
+    // 오버레이 클릭 시 닫기
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeLoginModal();
+        }
+    });
+
+    // ESC 키로 닫기
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeLoginModal();
+        }
+    });
+}
+
+/**
+ * 로그인 모달을 엽니다.
+ */
+function openLoginModal() {
+    const modal = document.getElementById('login-modal');
+    if (modal) {
+        // 스크롤바 너비 계산
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.paddingRight = scrollbarWidth + 'px';
+        document.body.style.overflow = 'hidden';
+        modal.classList.add('active');
+    } else {
+        console.error('로그인 모달이 로드되지 않았습니다.');
+    }
+}
+
+/**
+ * 로그인 모달을 닫습니다.
+ */
+function closeLoginModal() {
+    const modal = document.getElementById('login-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+    }
+}
+
+/**
+ * 로그인이 필요한 액션을 실행합니다.
+ * 로그인 상태가 아니면 모달을 띄우고, 로그인 상태면 콜백을 실행합니다.
+ * @param {Function} callback - 로그인 상태일 때 실행할 콜백 함수
+ */
+function requireLogin(callback) {
+    if (isLoggedIn()) {
+        callback();
+    } else {
+        openLoginModal();
+    }
+}

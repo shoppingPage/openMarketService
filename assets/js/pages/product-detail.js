@@ -186,9 +186,19 @@
         elements.btnPlus.addEventListener('click', increaseQuantity);
         elements.btnMinus.addEventListener('click', decreaseQuantity);
 
-        // 장바구니 버튼 클릭
+        // 장바구니 버튼 클릭 - 로그인 체크
         elements.btnCart.addEventListener('click', () => {
-            window.location.href = '../cart/';
+            requireLogin(() => {
+                window.location.href = '../cart/';
+            });
+        });
+
+        // 바로구매 버튼 클릭 - 로그인 체크
+        elements.btnBuy.addEventListener('click', () => {
+            requireLogin(() => {
+                // 바로구매 로직 (추후 구현)
+                console.log('바로구매 진행');
+            });
         });
 
         // 탭 이벤트 리스너
@@ -218,6 +228,9 @@
 
     // ===== 12. 초기화 =====
     async function init() {
+        // 로그인 모달 로드
+        await loadLoginModal('../assets/');
+
         const data = await fetchProductData();
         if (data) {
             renderProduct(data);
