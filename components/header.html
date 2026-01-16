@@ -1,41 +1,74 @@
 <header class="main-header">
-    <section class="container header-content">
-        <div class="header-first">
-            <h1 class="logo">
-                <a href="/" data-link="home">
-                    <img src="" alt="HODU 로고" data-icon="Logo-hodu.png">
-                </a>
-            </h1>
-            <form class="search-form" role="search">
-                <fieldset>
-                    <legend class="scr-only">상품 검색</legend>
-                    <input
-                        type="search"
-                        placeholder="상품을 검색해보세요!"
-                        class="search-input"
-                    />
-                    <button type="submit" class="search-btn">
-                        <img src="" alt="검색하기" data-icon="icon-search.svg">
-                    </button>
-                </fieldset>
-            </form>
-        </div>
+  <section class="container header-content">
+    <div class="header-first">
+      <h1 class="logo">
+        <a href="/" data-link="home">
+          <img alt="HODU 로고" data-icon="Logo-hodu.png" />
+        </a>
+      </h1>
+      <form class="search-form" role="search">
+        <fieldset>
+          <legend class="scr-only">상품 검색</legend>
+          <input
+            type="search"
+            placeholder="상품을 검색해보세요!"
+            class="search-input"
+          />
+          <button type="submit" class="search-btn">
+            <img src="" alt="검색하기" data-icon="icon-search.svg" />
+          </button>
+        </fieldset>
+      </form>
+    </div>
 
-        <nav class="user-navigation">
-            <ul class="nav-list">
-                <li>
-                    <a href="/cart" class="nav-link" data-nav="cart">
-                        <img src="" alt="" aria-hidden="true" data-icon="icon-shopping-cart-2.svg">
-                        <span>장바구니</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/login" class="nav-link" data-nav="login">
-                        <img src="" alt="" aria-hidden="true" data-icon="icon-user-2.svg">
-                        <span>로그인</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </section>
+    <!-- <nav class="user-navigation">
+      <ul class="nav-list">
+        <li>
+          <a href="/cart" class="nav-link" data-nav="cart">
+            <img
+              src=""
+              alt=""
+              aria-hidden="true"
+              data-icon="icon-shopping-cart-2.svg"
+            />
+            <span>장바구니</span>
+          </a>
+        </li>
+        <li>
+          <a href="/login" class="nav-link" data-nav="login">
+            <img src="" alt="" aria-hidden="true" data-icon="icon-user-2.svg" />
+            <span>로그인</span>
+          </a>
+        </li>
+      </ul>
+    </nav> -->
+
+    <nav class="user-navigation">
+      <ul class="nav-list">
+        <li>
+          <a href="/cart" class="nav-link" data-nav="cart">
+            <img
+              src=""
+              alt=""
+              aria-hidden="true"
+              data-icon="icon-shopping-cart.svg"
+            />
+            <span>장바구니</span>
+          </a>
+        </li>
+        <li id="nav-user-status">
+          <a href="/login" class="nav-link" data-nav="login">
+            <div class="user-icon-wrapper">
+              <img
+                src="../assets/images/icon-user.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+            <span id="login-text">로그인</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </section>
 </header>

@@ -1,0 +1,19 @@
+/* 기본 상태 (검정/회색 아이콘) */
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--input-txt-color); /* 기본 텍스트 색상 */
+}
+
+/* 로그인 완료 상태 (is-login 클래스가 붙었을 때) */
+#nav-user-status.is-login .nav-link {
+  color: var(--point-color); /* 텍스트를 초록색으로 */
+}
+
+/* 아이콘 이미지 크기 조정 */
+.icon-user {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 4px;
+}
