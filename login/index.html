@@ -1,97 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HODU | 로그인</title>
+    <title>HODU |</title>
     <link rel="stylesheet" href="../assets/css/reset.css" />
-    <link rel="stylesheet" href="../assets/css/root.css" />
     <link rel="stylesheet" href="../assets/css/font.css" />
+    <link rel="stylesheet" href="../assets/css/root.css" />
     <link rel="stylesheet" href="../assets/css/pages/login.css" />
-  </head>
-  <body>
+    </head>
+<body>
     <main class="login__wrap">
-      <!-- 로고 -->
-      <h1 class="login__logo">
-        <img src="../assets/images/Logo-hodu.png" alt="HODU" />
-      </h1>
+        <!-- 로고 -->
+        <h1 class="login__logo">
+        <img src="../assets/images/logo-hodu.png" alt="HODU 로고">
+        </h1>
+        
+        <!-- 타이틀 -->
+        <h2 class="title">로그인</h2>
+        <!-- 구매회원v판매회원 로그인 탭 -->
 
-      <!-- 구매회원/판매회원 로그인 탭 -->
-      <div class="login__tabs" role="tablist">
-        <button
-          class="login__tab active"
-          role="tab"
-          aria-selected="true"
-          aria-controls="buyer-panel"
-          data-type="buyer"
+        <div class="login__tabs" role="tablist">
+        <button 
+            class="login__tab:" 
+            role="tab" 
+            aria-selected="true" 
+            aria-controls="buyer-panel"
+            data-type="buyer"
         >
-          구매회원 로그인
+             
         </button>
-        <button
-          class="login__tab"
-          role="tab"
-          aria-selected="false"
-          aria-controls="seller-panel"
-          data-type="seller"
-        >
-          판매회원 로그인
-        </button>
-      </div>
+            <button 
+                class="login__tab" 
+                role="tab" 
+                aria-selected="false" 
+                aria-controls="seller-panel"
+                data-type="seller"
+            >
+            
+            </button>
+        </div>
 
-      <!-- 로그인 폼 -->
-      <section
-        class="login__card"
-        id="buyer-panel"
-        role="tabpanel"
-        aria-label="로그인"
-      >
+        <section class="login__card" id="buyer-panel" role="tabpanel" aria-label="로그인">
         <form id="loginForm" class="login__form" novalidate>
-          <!-- 아이디 입력 -->
-          <label class="login__field">
-            <span class="login__label">아이디</span>
+            <!-- 아이디 입력 -->
+            <label class="login__field">
             <input
-              id="username"
-              class="login__input"
-              type="text"
-              autocomplete="username"
-              aria-describedby="warnBox"
+                id="username"
+                class="login__input"
+                type="text"
+                autocomplete="username"
+                aria-describedby="warnBox"
+                placeholder="아이디"
             />
-          </label>
-
-          <!-- 비밀번호 입력 -->
-          <label class="login__field">
-            <span class="login__label">비밀번호</span>
+            </label>
+            
+            <!-- 비밀번호 입력 -->
+            <label class="login__field">
+            
             <input
-              id="password"
-              class="login__input"
-              type="password"
-              autocomplete="current-password"
-              aria-describedby="warnBox"
+                id="password"
+                class="login__input"
+                type="password"
+                autocomplete="current-password"
+                aria-describedby="warnBox"
+                placeholder="비밀번호"
             />
-          </label>
-
-          <!-- 경고 메시지 -->
-          <div
-            id="warnBox"
-            class="login__warn"
-            role="alert"
-            aria-live="polite"
-          ></div>
-
-          <!-- 로그인 버튼 -->
-          <button id="loginBtn" class="login__btn" type="submit">로그인</button>
+            </label>
+            
+            <!-- 경고 메시지 -->
+            <div id="warnBox" class="login__warn" role="alert" aria-live="polite"></div>
+            
+            <!-- 로그인 버튼 -->
+            <button id="loginBtn" class="login__btn" type="submit">로그인</button>
         </form>
-      </section>
+        </section>
 
-    <!-- 하단 링크 -->
-    <nav class="login__links" aria-label="하단 링크">
-      <a class="login__link" href="../join/index.html">회원가입</a>
-      <span class="login__divider" aria-hidden="true">|</span>
-      <a class="login__link" href="../find-password.html">비밀번호 찾기</a>
-    </nav>
-  </main>
+        <!-- 하단 링크 -->
+        <nav class="login__links" aria-label="하단 링크">
+        <a class="login__link" href="./signup.html">회원가입</a>
+        <span class="login__divider" aria-hidden="true">|</span>
+        <a class="login__link" href="./find-password.html">비밀번호 찾기</a>
+        </nav>
+    </main>
 
-  <script src="../assets/js/common.js"></script>
-  <script src="../assets/js/pages/login.js"></script>
-</body>
-</html>
+    <script src="../assets/js/pages/login.js"></script>
+    </body>
+    </html>
+
