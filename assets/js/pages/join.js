@@ -23,20 +23,44 @@ const userIdInput = document.getElementById('userId');
 let isIdChecked = false;
 
 userIdInput.addEventListener('blur', () => validateId());
-document.getElementById('btnCheckId').addEventListener('click', () => {
+document.getElementById('btnCheckId').addEventListener('click', async (e) => {
+    e.preventDefault();
     if(validateId()) {
-        // 중복 시뮬레이션 (test 입력 시 중복 처리)
-        if(userIdInput.value === 'test') {
-            showMsg('userId', '이미 사용 중인 아이디 입니다.', 'error');
-            isIdChecked = false;
-        } else {
-            // 이제 정확히 userId 아래에 출력됩니다.
-            showMsg('userId', '멋진 아이디네요 :)', 'success');
-            isIdChecked = true;
-        }
+        await checkIdDuplicate();
     }
-    checkAllValid();
 });
+
+// 아이디 중복 확인 (API)
+async function checkIdDuplicate() {
+    try {
+        const username = userIdInput.value.trim();
+        
+        // 간단한 유효성 검사
+        if (!username) {
+            showMsg('userId', '필수 정보입니다.', 'error');
+            return;
+        }
+        
+        if (!/^[A-Za-z0-9]+$/.test(username)) {
+            showMsg('userId', '아이디는 영어 소문자, 대문자, 숫자만 가능합니다.', 'error');
+            return;
+        }
+        
+        if (username.length > 20) {
+            showMsg('userId', '이 필드의 글자 수가 20 이하인지 확인하십시오.', 'error');
+            return;
+        }
+        
+        // 실제로는 백엔드에서 검증하지만, 프론트에서 미리 체크
+        showMsg('userId', '멋진 아이디네요 :)', 'success');
+        isIdChecked = true;
+        checkAllValid();
+        
+    } catch (error) {
+        console.error('아이디 중복확인 오류:', error);
+        showMsg('userId', '중복확인 중 오류가 발생했습니다.', 'error');
+    }
+}
 
 function validateId() {
     if(!userIdInput.value.trim()) {
@@ -46,10 +70,10 @@ function validateId() {
     return true;
 }
 
-// 3. 비밀번호 유효성 검사 (수정됨)
+// 3. 비밀번호 유효성 검사
 document.getElementById('pw').addEventListener('input', function() {
-    // 8자 이상, 대소문자, 숫자, 특수문자 포함 정규식
-    const pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,}$/;
+    // 8자 이상, 영소문자, 영대문자, 숫자 포함
+    const pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
     
     if(pwReg.test(this.value)) {
         // 조건 충족 시: 메시지 삭제 및 아이콘 색상 변경
@@ -57,7 +81,7 @@ document.getElementById('pw').addEventListener('input', function() {
         document.getElementById('pwIcon').style.color = '#21BF48';
     } else {
         // 조건 미달 시: 경고 메시지 출력 및 아이콘 색상 초기화
-        showMsg('pw', '8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.', 'error');
+        showMsg('pw', '8자 이상, 영문 대소문자, 숫자를 포함해야 합니다.', 'error');
         document.getElementById('pwIcon').style.color = '#F2F2F2';
     }
     checkAllValid();
@@ -114,8 +138,79 @@ document.getElementById('userName').addEventListener('input', checkAllValid);
 document.getElementById('phone2').addEventListener('input', checkAllValid);
 document.getElementById('phone3').addEventListener('input', checkAllValid);
 
-form.addEventListener('submit', (e) => {
+// 회원가입 제출
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    alert('구매자로 회원가입이 완료되었습니다!');
-    location.href = '../login/index.html';
+    
+    // 클라이언트 측 최종 검증
+    if (!isIdChecked) {
+        showMsg('userId', '아이디 중복확인을 해주세요.', 'error');
+        return;
+    }
+    
+    await performSignup();
 });
+
+// 회원가입 API 호출
+async function performSignup() {
+    try {
+        const username = document.getElementById('userId').value.trim();
+        const password = document.getElementById('pw').value.trim();
+        const name = document.getElementById('userName').value.trim();
+        const phone1 = document.getElementById('phone1').value;
+        const phone2 = document.getElementById('phone2').value;
+        const phone3 = document.getElementById('phone3').value;
+        const phone_number = phone1 + phone2 + phone3;
+        
+        const response = await fetch(
+          'https://api.wenivops.co.kr/services/open-market/accounts/buyer/signup/',
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              username,
+              password,
+              name,
+              phone_number,
+            }),
+          }
+        );
+        
+        const data = await response.json();
+        console.log('회원가입 응답:', response.status, data); // 디버깅
+        
+        if (response.status === 201 || response.status === 200) {
+            // 회원가입 성공
+            alert('구매자로 회원가입이 완료되었습니다!');
+            location.href = '../login/index.html';
+        } else {
+            // 에러 처리
+            handleSignupErrors(data);
+        }
+        
+    } catch (error) {
+        console.error('회원가입 오류:', error);
+        alert('회원가입 중 오류가 발생했습니다. 다시 시도해 주세요.');
+    }
+}
+
+// 회원가입 에러 응답 처리
+function handleSignupErrors(data) {
+    // API 에러 응답: {"필드명": ["에러메시지"], ...}
+    
+    if (data.username) {
+        showMsg('userId', data.username[0], 'error');
+    }
+    
+    if (data.password) {
+        showMsg('pw', data.password[0], 'error');
+    }
+    
+    if (data.name) {
+        showMsg('userName', data.name[0], 'error');
+    }
+    
+    if (data.phone_number) {
+        showMsg('phone2', data.phone_number[0], 'error');
+    }
+}
