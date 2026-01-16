@@ -109,7 +109,7 @@ figure {
 /* --- 메인 배너 슬라이더 --- */
 .hero-banner {
   width: 100%;
-  height: 500px;
+  aspect-ratio: 1400 / 500;
   background-color: var(--gray-color);
   position: relative;
   margin-bottom: 80px;
@@ -178,7 +178,7 @@ figure {
 
 /* 슬라이드 오버레이 (텍스트 가독성) */
 .slide::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -267,7 +267,7 @@ figure {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 78px 70px; /* 세로 간격, 가로 간격 */
+  gap: 78px 70px;
   padding-bottom: 100px;
 }
 
@@ -436,4 +436,15 @@ figure {
 .company-name {
   font-weight: 700;
   color: #000000;
+}
+
+/* 반응형 그리드 */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+  }
+  .container {
+    padding: 0 20px;
+  }
 }
