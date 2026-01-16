@@ -1,49 +1,3 @@
-// const productContainer = document.getElementById("product-container");
-
-// async function fetchAndRender() {
-//   try {
-//     // 1. API 데이터 가져오기
-//     const res = await fetch(
-//       "https://api.wenivops.co.kr/services/open-market/products/"
-//     );
-//     const data = await res.json();
-//     const products = data.results; // 상품 배열
-
-//     // 2. 데이터 화면에 뿌리기
-//     productContainer.innerHTML = products
-//       .map(
-//         (product) => `
-//       <article class="product-item">
-//         <figure class="product-image">
-//           <img src="${product.image}" alt="${product.name} 이미지">
-//         </figure>
-
-//         <div class="product-info">
-//           <span class="brand-name">${product.seller.store_name}</span>
-
-//           <h3 class="product-name">
-//             <a href="#">${product.name}</a>
-//           </h3>
-
-//           <p class="product-price">
-//             <span class="amount">${product.price.toLocaleString()}</span><span class="unit">원</span>
-//           </p>
-//         </div>
-//       </article>
-//     `
-//       )
-//       .join("");
-//   } catch (err) {
-//     console.error("데이터 로딩 중 오류:", err);
-//     productContainer.innerHTML =
-//       '<p style="text-align:center; padding: 50px;">상품을 불러오는 데 실패했습니다.</p>';
-//   }
-// }
-
-// fetchAndRender();
-
-// 새로운 코드
-
 const productContainer = document.getElementById("product-container");
 
 async function fetchAndRender() {
@@ -83,3 +37,89 @@ async function fetchAndRender() {
 }
 
 fetchAndRender();
+
+// ===== 배너 슬라이더 =====
+(function() {
+  'use strict';
+
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+
+  let currentIndex = 0;
+  let autoSlideInterval;
+  const AUTO_SLIDE_DELAY = 5000;
+
+
+  function goToSlide(index) {
+
+    if (index < 0) {
+      index = slides.length - 1;
+    } else if (index >= slides.length) {
+      index = 0;
+    }
+
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => {
+      dot.classList.remove('active');
+      dot.setAttribute('aria-selected', 'false');
+    });
+
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    dots[index].setAttribute('aria-selected', 'true');
+
+    currentIndex = index;
+  }
+
+  function nextSlide() {
+    goToSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentIndex - 1);
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, AUTO_SLIDE_DELAY);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  function resetAutoSlide() {
+    stopAutoSlide();
+    startAutoSlide();
+  }
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+      resetAutoSlide();
+    });
+  });
+
+  const heroBanner = document.querySelector('.hero-banner');
+  if (heroBanner) {
+    heroBanner.addEventListener('mouseenter', stopAutoSlide);
+    heroBanner.addEventListener('mouseleave', startAutoSlide);
+  }
+
+  if (slides.length > 0) {
+    startAutoSlide();
+  }
+})();
