@@ -1,122 +1,4 @@
 /* ==========================================
-   폰트 정의
-========================================== */
-@font-face {
-  font-family: "SpokaHanSansNeo";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Thin.woff")
-    format("woff");
-  font-weight: 100;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SpokaHanSansNeo";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Light.woff")
-    format("woff");
-  font-weight: 300;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SpokaHanSansNeo";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
-    format("woff");
-  font-weight: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SpokaHanSansNeo";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Medium.woff")
-    format("woff");
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SpokaHanSansNeo";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff")
-    format("woff");
-  font-weight: 700;
-  font-display: swap;
-}
-
-/* ==========================================
-   CSS 변수
-========================================== */
-:root {
-  --background-color: #ffffff;
-  --gray-color: #f2f2f2;
-  --point-color: #21bf48;
-  --border: 1px #c4c4c4 solid;
-  --text-color: #000000;
-  --warning-txt-color: #eb5757;
-  --input-txt-color: #767676;
-}
-
-/* ==========================================
-   기본 리셋
-========================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* ==========================================
-   공통 스타일
-========================================== */
-html {
-  font-size: 10px;
-}
-
-body {
-  font-family: "SpokaHanSansNeo", sans-serif;
-  font-size: 1.6rem;
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-img {
-  width: 100%;
-  height: auto;
-}
-
-/* 스크린 리더 전용 텍스트 */
-.scr-only {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-}
-
-input {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-button {
-  cursor: pointer;
-  padding: 10px 24px;
-  width: max-content;
-  border: none;
-  border-radius: 40px;
-}
-
-/* ==========================================
    로그인 페이지 레이아웃
 ========================================== */
 .login__wrap {
@@ -186,8 +68,9 @@ button {
   border: 1px solid #c4c4c4;
   border-top: none;
   border-radius: 0 0 10px 10px;
-  padding: 60px 35px 36px;
+  padding: 16px;       
 }
+
 
 /* ==========================================
    폼 스타일
@@ -210,16 +93,28 @@ button {
   margin-bottom: 10px;
 }
 
+.login__title { 
+  font-size: 3.2rem;     /* ✅ 24px */
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 32px;  /* 박스 줄어든 만큼 아래 여백도 살짝 감소 */
+  text-align: center;
+  color: var(--text-color);
+}
+
 /* ==========================================
    입력 필드
 ========================================== */
 .login__input {
   width: 100%;
-  padding: 17px 0;
+  padding: 14px 0 12px;     /* ⬆️ 위 여백 살짝 더 */
   border: none;
   border-bottom: var(--border);
-  font-size: 1.6rem;
+
+  font-size: 1.6rem;       /* 16px */
+  font-weight: 400;
   color: var(--text-color);
+
   background-color: transparent;
   transition: border-color 0.3s;
 }
@@ -242,10 +137,11 @@ button {
 ========================================== */
 .login__warn {
   min-height: 20px;
+  margin: 16px 0 12px;   /* ⬆️ 위·아래 간격 분리 */
   font-size: 1.4rem;
   color: var(--warning-txt-color);
-  margin: 12px 0 0 0;
   display: none;
+  line-height: 1.4;
 }
 
 .login__warn.show {
@@ -265,7 +161,7 @@ button {
   font-size: 1.8rem;
   font-weight: 700;
   cursor: pointer;
-  margin-top: 36px;
+  margin-top: 24px;
   transition: opacity 0.3s;
 }
 
