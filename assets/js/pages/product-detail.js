@@ -181,7 +181,69 @@
         }
     }
 
-    // ===== 11. 장바구니 추가 =====
+    // ===== 11. 장바구니 중복 확인 =====
+    async function checkCartDuplicate() {
+        const token = getAccessToken();
+        if (!token) return false;
+
+        try {
+            const response = await fetch('https://api.wenivops.co.kr/services/open-market/cart/', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) return false;
+
+            const data = await response.json();
+            const cartItems = data.results || data || [];
+
+            // 현재 상품이 장바구니에 있는지 확인
+            return cartItems.some(item => item.product.id === parseInt(PRODUCT_ID));
+        } catch (error) {
+            console.error('장바구니 확인 오류:', error);
+            return false;
+        }
+    }
+
+    // ===== 12. 장바구니 중복 모달 =====
+    function openCartDuplicateModal() {
+        const modal = document.getElementById('cartDuplicateModal');
+        modal.classList.add('active');
+    }
+
+    function closeCartDuplicateModal() {
+        const modal = document.getElementById('cartDuplicateModal');
+        modal.classList.remove('active');
+    }
+
+    function initCartDuplicateModal() {
+        const modal = document.getElementById('cartDuplicateModal');
+        const closeBtn = document.getElementById('cartDuplicateModalClose');
+        const btnNo = document.getElementById('btnModalNo');
+        const btnYes = document.getElementById('btnModalYes');
+
+        // 닫기 버튼
+        closeBtn.addEventListener('click', closeCartDuplicateModal);
+
+        // 아니오 버튼
+        btnNo.addEventListener('click', closeCartDuplicateModal);
+
+        // 예 버튼 - 장바구니로 이동
+        btnYes.addEventListener('click', () => {
+            window.location.href = '../cart/';
+        });
+
+        // 오버레이 클릭 시 닫기
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeCartDuplicateModal();
+            }
+        });
+    }
+
+    // ===== 13. 장바구니 추가 =====
     async function addToCart() {
         const token = getAccessToken();
         if (!token) {
@@ -189,8 +251,15 @@
             return;
         }
 
+        // 장바구니에 이미 있는지 확인
+        const isDuplicate = await checkCartDuplicate();
+        if (isDuplicate) {
+            openCartDuplicateModal();
+            return;
+        }
+
         try {
-            // 장바구니에 추가 (이미 있는 상품은 수량이 더해짐)
+            // 장바구니에 추가
             const response = await fetch('https://api.wenivops.co.kr/services/open-market/cart/', {
                 method: 'POST',
                 headers: {
@@ -265,6 +334,9 @@
     async function init() {
         // 로그인 모달 로드
         await loadLoginModal('../assets/');
+
+        // 장바구니 중복 모달 초기화
+        initCartDuplicateModal();
 
         const data = await fetchProductData();
         if (data) {

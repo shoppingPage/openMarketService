@@ -39,11 +39,8 @@
 
         <!-- Empty Cart State -->
         <div id="emptyCart" class="empty-cart" style="display: none;">
-          <div class="empty-cart-icon">
-            <img src="../assets/images/icon-shopping-bag.svg" alt="" />
-          </div>
-          <p class="empty-cart-text">장바구니에 담긴 상품이 없습니다.</p>
-          <a href="/" class="go-shopping-btn">쇼핑하러 가기</a>
+          <p class="empty-cart-title">장바구니에 담긴 상품이 없습니다.</p>
+          <p class="empty-cart-text">원하는 상품을 장바구니에 담아보세요!</p>
         </div>
       </div>
 
@@ -82,6 +79,22 @@
         <button type="button" class="order-btn-main" id="orderBtn">주문하기</button>
       </div>
     </main>
+
+    <!-- 삭제 확인 모달 -->
+    <div class="delete-modal-overlay" id="deleteModal">
+      <div class="delete-modal">
+        <button type="button" class="delete-modal-close" id="deleteModalClose">
+          <img src="../assets/images/icon-delete.svg" alt="닫기" />
+        </button>
+        <div class="delete-modal-content">
+          <p>상품을 삭제하시겠습니까?</p>
+        </div>
+        <div class="delete-modal-buttons">
+          <button type="button" class="btn-modal-cancel" id="btnDeleteCancel">취소</button>
+          <button type="button" class="btn-modal-confirm" id="btnDeleteConfirm">확인</button>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <div id="footer-container"></div>

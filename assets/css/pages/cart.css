@@ -185,7 +185,7 @@
 }
 
 .header-checkbox {
-  margin-right: 40px;
+  margin-right: 314px;
 }
 
 .header-label {
@@ -194,18 +194,15 @@
 }
 
 .product-info-label {
-  flex: 1;
-  text-align: left;
+  margin-right: 379px;
 }
 
 .quantity-label {
-  width: 150px;
-  text-align: center;
+  margin-right: 238px;
 }
 
 .price-label {
-  width: 200px;
-  text-align: center;
+  /* 마지막 항목 */
 }
 
 /* ================================ */
@@ -396,42 +393,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 150px 0;
+  padding: 200px 0 300px;
   text-align: center;
 }
 
-.empty-cart-icon {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 18px;
-}
-
-.empty-cart-icon img {
-  width: 100%;
-  height: 100%;
-  opacity: 0.3;
+.empty-cart-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 17px;
 }
 
 .empty-cart-text {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: var(--input-txt-color);
-  margin-bottom: 30px;
-}
-
-.go-shopping-btn {
-  display: inline-block;
-  padding: 15px 35px;
-  background-color: var(--point-color);
-  color: white;
-  font-size: 1.6rem;
-  font-weight: 500;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.2s;
-}
-
-.go-shopping-btn:hover {
-  background-color: #1ba63f;
 }
 
 /* ================================ */
@@ -665,4 +640,99 @@
 .company-name {
   font-weight: 700;
   color: #000000;
+}
+
+/* ================================ */
+/* 삭제 확인 모달 */
+/* ================================ */
+.delete-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal-overlay.active {
+  display: flex;
+}
+
+.delete-modal {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 360px;
+  height: 200px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+}
+
+.delete-modal-close img {
+  width: 100%;
+  height: 100%;
+}
+
+.delete-modal-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+}
+
+.delete-modal-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.delete-modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  padding-bottom: 40px;
+}
+
+.delete-modal-buttons button {
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.delete-modal-buttons button:hover {
+  opacity: 0.8;
+}
+
+.btn-modal-cancel {
+  background-color: #fff;
+  color: var(--text-color);
+  border: 1px solid #c4c4c4;
+}
+
+.btn-modal-confirm {
+  background-color: var(--point-color);
+  color: #fff;
+  border: none;
 }
