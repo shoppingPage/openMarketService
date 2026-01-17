@@ -1,4 +1,16 @@
 /**
+ * HTTP URL을 HTTPS로 변환합니다.
+ * @param {string} url - 변환할 URL
+ * @returns {string} HTTPS URL
+ */
+function toHttps(url) {
+  if (url && url.startsWith('http://')) {
+    return url.replace('http://', 'https://');
+  }
+  return url;
+}
+
+/**
  * 컴포넌트를 로드하여 지정된 요소에 삽입합니다.
  * @param {string} componentPath - 컴포넌트 HTML 파일 경로
  * @param {string} targetSelector - 삽입할 위치의 선택자

@@ -14,7 +14,7 @@ async function fetchAndRender() {
       <article class="product-item">
         <a href="product-detail/index.html?id=${product.id}">
           <figure class="product-image">
-            <img src="${product.image}" alt="${product.name} 이미지">
+            <img src="${toHttps(product.image)}" alt="${product.name} 이미지">
           </figure>
           
           <div class="product-info">

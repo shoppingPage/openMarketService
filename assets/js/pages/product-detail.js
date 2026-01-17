@@ -66,7 +66,7 @@
     // 5. 화면 렌더링
     function renderProduct(data) {
         document.title = `${data.name} | HODU`;
-        elements.productImg.src = data.image;
+        elements.productImg.src = toHttps(data.image);
         elements.productImg.alt = data.name;
         elements.storeName.textContent = data.seller.store_name;
         elements.productTit.textContent = data.name;

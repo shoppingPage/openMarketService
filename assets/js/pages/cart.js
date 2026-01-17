@@ -144,7 +144,7 @@ function renderCartItem(cartItem) {
 
       <div class="cart-item-content">
         <div class="cart-item-image">
-          <img src="${product.image}" alt="${product.name}" width="160" height="160" />
+          <img src="${toHttps(product.image)}" alt="${product.name}" width="160" height="160" />
         </div>
 
         <div class="cart-item-info">
