@@ -87,12 +87,12 @@ async function loadHeader(basePath = "./assets/", activePage = "") {
       );
       if (activeNavLink) {
         activeNavLink.classList.add("active");
-        // 장바구니 활성 시 아이콘 변경
+        // 장바구니 활성 시 초록색 아이콘으로 변경
         if (activePage === "cart") {
           const cartIcon = activeNavLink.querySelector("img");
           if (cartIcon) {
-            cartIcon.setAttribute("data-icon", "icon-shopping-cart.svg");
-            cartIcon.src = `${basePath}images/icon-shopping-cart.svg`;
+            cartIcon.setAttribute("data-icon", "icon-shopping-cart-2.svg");
+            cartIcon.src = `${basePath}images/icon-shopping-cart-2.svg`;
           }
         }
       }

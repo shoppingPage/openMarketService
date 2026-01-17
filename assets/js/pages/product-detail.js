@@ -190,33 +190,8 @@
         }
 
         try {
-            // 1. 먼저 장바구니 목록 조회하여 중복 확인
-            const cartResponse = await fetch('https://api.wenivops.co.kr/services/open-market/cart/', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-
-            if (!cartResponse.ok) {
-                throw new Error('장바구니 조회 실패');
-            }
-
-            const cartData = await cartResponse.json();
-            const cartItems = cartData.results || cartData || [];
-
-            // 2. 이미 장바구니에 있는 상품인지 확인
-            const existingItem = cartItems.find(item => item.product_id == PRODUCT_ID);
-
-            if (existingItem) {
-                // 이미 장바구니에 있는 상품
-                alert('이미 장바구니에 있는 상품입니다.');
-                return;
-            }
-
-            // 3. 장바구니에 추가
-            const addResponse = await fetch('https://api.wenivops.co.kr/services/open-market/cart/', {
+            // 장바구니에 추가 (이미 있는 상품은 수량이 더해짐)
+            const response = await fetch('https://api.wenivops.co.kr/services/open-market/cart/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -228,11 +203,11 @@
                 })
             });
 
-            if (!addResponse.ok) {
+            if (!response.ok) {
                 throw new Error('장바구니 추가 실패');
             }
 
-            // 4. 성공 시 장바구니로 이동할지 확인
+            // 성공 시 장바구니로 이동할지 확인
             if (confirm('장바구니에 상품을 담았습니다.\n장바구니로 이동하시겠습니까?')) {
                 window.location.href = '../cart/';
             }

@@ -77,27 +77,6 @@ async function fetchCartItems() {
 }
 
 /**
- * 상품 상세 정보 조회
- */
-async function fetchProductDetail(productId) {
-  if (products[productId]) {
-    return products[productId];
-  }
-
-  try {
-    const response = await fetch(`${API_BASE_URL}/products/${productId}/`);
-    if (!response.ok) throw new Error('상품 조회 실패');
-
-    const data = await response.json();
-    products[productId] = data;
-    return data;
-  } catch (error) {
-    console.error('상품 조회 오류:', error);
-    return null;
-  }
-}
-
-/**
  * 장바구니 수량 변경
  */
 async function updateCartQuantity(cartId, quantity) {
@@ -144,15 +123,20 @@ function showLoginAlert() {
 
 /**
  * 장바구니 아이템 렌더링
+ * API 응답에서 product 객체가 직접 포함됨
  */
-function renderCartItem(cartItem, product) {
+function renderCartItem(cartItem) {
+  const product = cartItem.product;
   const totalPrice = product.price * cartItem.quantity;
   const shippingText = product.shipping_fee > 0
     ? `배송비 ${formatPrice(product.shipping_fee)}원`
     : '무료배송';
 
+  // 상품 정보 캐시에 저장 (수량 변경 등에서 사용)
+  products[product.id] = product;
+
   return `
-    <article class="cart-item" data-cart-id="${cartItem.id}" data-product-id="${cartItem.product_id}">
+    <article class="cart-item" data-cart-id="${cartItem.id}" data-product-id="${product.id}">
       <label class="custom-checkbox cart-item-checkbox">
         <input type="checkbox" class="item-checkbox" data-cart-id="${cartItem.id}" checked />
         <span class="checkmark"></span>
@@ -160,12 +144,12 @@ function renderCartItem(cartItem, product) {
 
       <div class="cart-item-content">
         <div class="cart-item-image">
-          <img src="${product.image}" alt="${product.product_name}" />
+          <img src="${product.image}" alt="${product.name}" />
         </div>
 
         <div class="cart-item-info">
-          <span class="cart-item-store">${product.store_name || '판매자'}</span>
-          <h3 class="cart-item-name">${product.product_name}</h3>
+          <span class="cart-item-store">${product.seller?.store_name || '판매자'}</span>
+          <h3 class="cart-item-name">${product.name}</h3>
           <span class="cart-item-unit-price">${formatPrice(product.price)}원</span>
           <span class="cart-item-delivery">${shippingText}</span>
         </div>
@@ -197,6 +181,7 @@ function renderCartItem(cartItem, product) {
 
 /**
  * 장바구니 전체 렌더링
+ * API 응답에 product 객체가 포함되어 있어 별도 조회 불필요
  */
 async function renderCart() {
   cartItems = await fetchCartItems();
@@ -210,19 +195,9 @@ async function renderCart() {
     return;
   }
 
-  // 상품 정보 병렬 조회
-  const productPromises = cartItems.map(item => fetchProductDetail(item.product_id));
-  const productResults = await Promise.all(productPromises);
-
-  // 상품 정보와 장바구니 아이템 매핑
-  const itemsWithProducts = cartItems.map((item, index) => ({
-    cartItem: item,
-    product: productResults[index]
-  })).filter(item => item.product !== null);
-
-  // 렌더링
-  cartItemsContainer.innerHTML = itemsWithProducts
-    .map(({ cartItem, product }) => renderCartItem(cartItem, product))
+  // 렌더링 (API 응답에 product 객체 포함)
+  cartItemsContainer.innerHTML = cartItems
+    .map(cartItem => renderCartItem(cartItem))
     .join('');
 
   cartItemsContainer.style.display = 'block';
@@ -318,7 +293,7 @@ async function handleQuantityIncrease(e) {
 
   if (!cartItem) return;
 
-  const product = products[cartItem.product_id];
+  const product = cartItem.product;
   if (product && cartItem.quantity >= product.stock) {
     alert('재고가 부족합니다.');
     return;
@@ -387,7 +362,7 @@ function updateItemUI(cartId, quantity) {
   if (!itemEl) return;
 
   const cartItem = cartItems.find(item => item.id == cartId);
-  const product = products[cartItem.product_id];
+  const product = cartItem.product;
   const totalPrice = product.price * quantity;
 
   itemEl.querySelector('.quantity-value').textContent = quantity;
@@ -408,7 +383,7 @@ function calculateTotal() {
     const cartItem = cartItems.find(item => item.id == cartId);
 
     if (cartItem) {
-      const product = products[cartItem.product_id];
+      const product = cartItem.product;
       if (product) {
         totalProductPrice += product.price * cartItem.quantity;
         totalShippingFee += product.shipping_fee || 0;
