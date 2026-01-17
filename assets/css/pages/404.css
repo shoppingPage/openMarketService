@@ -9,18 +9,18 @@
 
 .content-wrapper {
   display: flex;
+  justify-content: center; /* 아이템 전체를 중앙 정렬 */
   align-items: center; /* 수직 중앙 정렬 */
-  gap: 50px; /* 아이콘과 텍스트 사이 간격 */
-  max-width: 1000px;
+  gap: 60px; /* 아이콘과 텍스트 사이 간격 */
+  max-width: 800px; /* 전체 콘텐츠 너비 제한 */
   width: 100%;
   padding: 0 20px;
 }
 
 /* 이미지 영역 */
 .img-area {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end; /* 이미지를 텍스트 쪽으로 붙임 */
+  display: flex; /* 내부 이미지를 정렬하기 위해 flex 유지 */
+  /* justify-content: flex-end; -- 제거: flex:1 제거로 필요 없어짐 */
 }
 
 .img-area img {
@@ -31,7 +31,6 @@
 
 /* 텍스트 영역 */
 .text-area {
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;

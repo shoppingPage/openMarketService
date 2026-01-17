@@ -207,7 +207,7 @@
         }
     }
 
-    // ===== 12. 장바구니 중복 모달 =====
+    // ===== 12. 장바구니 관련 모달 =====
     function openCartDuplicateModal() {
         const modal = document.getElementById('cartDuplicateModal');
         modal.classList.add('active');
@@ -217,31 +217,53 @@
         const modal = document.getElementById('cartDuplicateModal');
         modal.classList.remove('active');
     }
+    
+    function openCartAddSuccessModal() {
+        const modal = document.getElementById('cartAddSuccessModal');
+        modal.classList.add('active');
+    }
 
-    function initCartDuplicateModal() {
-        const modal = document.getElementById('cartDuplicateModal');
-        const closeBtn = document.getElementById('cartDuplicateModalClose');
-        const btnNo = document.getElementById('btnModalNo');
-        const btnYes = document.getElementById('btnModalYes');
+    function closeCartAddSuccessModal() {
+        const modal = document.getElementById('cartAddSuccessModal');
+        modal.classList.remove('active');
+    }
 
-        // 닫기 버튼
-        closeBtn.addEventListener('click', closeCartDuplicateModal);
+    function initCartModals() {
+        // 중복 모달
+        const duplicateModal = document.getElementById('cartDuplicateModal');
+        const duplicateCloseBtn = document.getElementById('cartDuplicateModalClose');
+        const btnDuplicateNo = document.getElementById('btnDuplicateModalNo');
+        const btnDuplicateYes = document.getElementById('btnDuplicateModalYes');
 
-        // 아니오 버튼
-        btnNo.addEventListener('click', closeCartDuplicateModal);
-
-        // 예 버튼 - 장바구니로 이동
-        btnYes.addEventListener('click', () => {
+        duplicateCloseBtn.addEventListener('click', closeCartDuplicateModal);
+        btnDuplicateNo.addEventListener('click', closeCartDuplicateModal);
+        btnDuplicateYes.addEventListener('click', () => {
             window.location.href = '../cart/';
         });
-
-        // 오버레이 클릭 시 닫기
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
+        duplicateModal.addEventListener('click', (e) => {
+            if (e.target === duplicateModal) {
                 closeCartDuplicateModal();
             }
         });
+
+        // 추가 성공 모달
+        const successModal = document.getElementById('cartAddSuccessModal');
+        const successCloseBtn = document.getElementById('cartAddSuccessModalClose');
+        const btnSuccessNo = document.getElementById('btnAddSuccessModalNo');
+        const btnSuccessYes = document.getElementById('btnAddSuccessModalYes');
+
+        successCloseBtn.addEventListener('click', closeCartAddSuccessModal);
+        btnSuccessNo.addEventListener('click', closeCartAddSuccessModal);
+        btnSuccessYes.addEventListener('click', () => {
+            window.location.href = '../cart/';
+        });
+        successModal.addEventListener('click', (e) => {
+            if (e.target === successModal) {
+                closeCartAddSuccessModal();
+            }
+        });
     }
+
 
     // ===== 13. 장바구니 추가 =====
     async function addToCart() {
@@ -276,10 +298,8 @@
                 throw new Error('장바구니 추가 실패');
             }
 
-            // 성공 시 장바구니로 이동할지 확인
-            if (confirm('장바구니에 상품을 담았습니다.\n장바구니로 이동하시겠습니까?')) {
-                window.location.href = '../cart/';
-            }
+            // 성공 시 장바구니 추가 성공 모달 열기
+            openCartAddSuccessModal();
 
         } catch (error) {
             console.error('장바구니 추가 오류:', error);
@@ -335,8 +355,8 @@
         // 로그인 모달 로드
         await loadLoginModal('../assets/');
 
-        // 장바구니 중복 모달 초기화
-        initCartDuplicateModal();
+        // 장바구니 관련 모달 초기화
+        initCartModals();
 
         const data = await fetchProductData();
         if (data) {
