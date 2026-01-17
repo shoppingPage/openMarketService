@@ -5,7 +5,7 @@
   padding: 0 40px;
 }
 
-/* --- 상단 헤더 --- */
+/*  상단 헤더 */
 .main-header {
   background-color: var(--background-color);
   border-bottom: var(--border);
@@ -97,9 +97,7 @@
   color: var(--point-color);
 }
 
-/* ================================ */
 /* 장바구니 메인 */
-/* ================================ */
 
 .cart-main {
   min-height: calc(100vh - 90px - 300px);
@@ -115,9 +113,8 @@
   color: var(--text-color);
 }
 
-/* ================================ */
 /* 커스텀 체크박스 (녹색 원형) */
-/* ================================ */
+
 .custom-checkbox {
   display: inline-flex;
   align-items: center;
@@ -166,9 +163,8 @@
   display: block;
 }
 
-/* ================================ */
 /* 장바구니 헤더 바 */
-/* ================================ */
+
 .cart-header-bar {
   background-color: var(--gray-color);
   height: 60px;
@@ -201,9 +197,8 @@
   margin-right: 238px;
 }
 
-/* ================================ */
 /* 장바구니 아이템 리스트 */
-/* ================================ */
+
 .cart-items-list {
   margin-top: 35px;
 }
@@ -381,9 +376,8 @@
   height: 100%;
 }
 
-/* ================================ */
 /* 빈 장바구니 상태 */
-/* ================================ */
+
 .empty-cart {
   display: flex;
   flex-direction: column;
@@ -405,9 +399,8 @@
   color: var(--input-txt-color);
 }
 
-/* ================================ */
 /* 하단 주문 계산 영역 */
-/* ================================ */
+
 .cart-summary-wrapper {
   background-color: var(--gray-color);
   margin-top: 80px;
@@ -498,9 +491,8 @@
   font-weight: 400;
 }
 
-/* ================================ */
 /* 주문하기 메인 버튼 */
-/* ================================ */
+
 .order-btn-wrapper {
   display: flex;
   justify-content: center;
@@ -529,9 +521,8 @@
   cursor: not-allowed;
 }
 
-/* ================================ */
 /* Footer */
-/* ================================ */
+
 .footer {
   width: 100%;
   background-color: #f2f2f2;
@@ -638,9 +629,8 @@
   color: #000000;
 }
 
-/* ================================ */
 /* 삭제 확인 모달 */
-/* ================================ */
+
 .delete-modal-overlay {
   display: none;
   position: fixed;
