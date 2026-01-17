@@ -1,10 +1,10 @@
-# 🛒 팀 오합지졸의 오픈마켓 서비스 프로젝트 (Open Market Service)
+# 팀 오합지졸의 오픈마켓 서비스 프로젝트 (Open Market Service)
 
 > **판매자와 구매자를 잇는 커머스 플랫폼** > 본 프로젝트는 Vanilla JS와 REST API를 활용하여 멀티 페이지 애플리케이션(MPA) 환경에서의 상품 등록, 결제 및 CRUD를 직접 구현한 팀 프로젝트입니다.
 
 ---
 
-## 1. 🛠 Tech Stack
+## 1. Tech Stack
 
 - **Markup:** HTML5
 - **Styling:** CSS3
@@ -15,7 +15,7 @@
 
 ---
 
-## 📂2. Project Structure
+## 2. Project Structure
 
 프로젝트의 폴더 구조는 기능별로 명확하게 분리하여 관리하고 있습니다. 각 페이지는 독립된 폴더 내의 `index.html`을 가지며, 공통 자원은 `assets` 폴더에서 관리합니다.
 
@@ -121,6 +121,24 @@ root/
 - **GNB 유동성:** 비로그인 유저가 장바구니 접근 시 로그인 안내 모달 노출.
 
 ---
+
+## 7. 개발 일정
+
+![작업 일정](./assets/images/readme-images/오픈마켓%20서비스%20UI%20API%20Pipeline-2026-01-17-111654.png)
+
+## 8. 개발 일정
+
+|                              메인페이지                               |
+| :-------------------------------------------------------------------: | ------------------------------------------------------------------- |
+|  <img src="./assets/images/readme-images/main-HODU.png" width="500">  |
+|                             로그인 페이지                             | 회원가입 페이지                                                     |
+|                                 :---:                                 | :---:                                                               |
+| <img src="./assets/images/readme-images/login-HODU.png" width="250">  | <img src="./assets/images/readme-images/join-HODU.png" width="250"> |
+|                            상품상세페이지                             | 장바구니                                                            |
+|                                 :---:                                 | :---:                                                               |
+| <img src="./assets/images/readme-images/detail-HODU.png" width="250"> | <img src="./assets/images/readme-images/cart-HODU.png" width="250"> |
+
+| **모바일: 세로형 레이아웃** | **데스크탑: 중앙 정렬 및 1:1 배치** |
 
 ## 7. 💡 추가 발표 포인트 (Tips)
 
