@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('joinForm');
     const btnJoin = document.getElementById('btnJoin');
     const terms = document.getElementById('terms');
-    
+
     // 유효성 상태 관리 변수 (색상 비교 대신 이 변수들을 사용해 버튼 활성화)
     let isIdChecked = false;
     let isPwValid = false;
@@ -33,6 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. 아이디 중복 확인
     const btnCheckId = document.getElementById('btnCheckId');
     const userIdInput = document.getElementById('userId');
+
+    userIdInput.addEventListener('input', () => {
+        if (userIdInput.value.trim() !== "") {
+            showMsg('userId', '', 'success');
+        }
+    });
 
     if (btnCheckId) {
         btnCheckId.addEventListener('click', async (e) => {
@@ -72,8 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. 비밀번호 유효성 검사 (8자 이상, 대소문자, 숫자 포함)
     const pwInput = document.getElementById('pw');
     const pwIcon = document.getElementById('pwIcon');
-    
-    pwInput.addEventListener('input', function() {
+
+    pwInput.addEventListener('input', function () {
         const pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
         if (pwReg.test(this.value)) {
             showMsg('pw', '', 'success'); // 메시지 지움
@@ -120,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [p2, p3].forEach(el => {
         el.addEventListener('input', () => {
             el.value = el.value.replace(/[^0-9]/g, ''); // 숫자만 입력
-            
+
             if (p2.value.length >= 3 && p3.value.length === 4) {
                 showMsg('phone2', '', 'success');
                 isPhoneValid = true;
@@ -135,7 +141,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. 이름 및 약관 체크
     const nameInput = document.getElementById('userName');
     nameInput.addEventListener('input', () => {
-        isNameValid = nameInput.value.trim() !== "";
+        if (nameInput.value.trim() !== "") {
+            showMsg('userName', '', 'success');
+            isNameValid = true;
+        } else {
+            isNameValid = false;
+        }
         checkAllValid();
     });
 
@@ -186,13 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: nameInput.value.trim(),
                 phone_number: document.getElementById('phone1').value + p2.value + p3.value
             };
-            
+
             const response = await fetch('https://api.wenivops.co.kr/services/open-market/accounts/buyer/signup/', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(signupData),
             });
-            
+
             if (response.ok) {
                 alert('구매자로 회원가입이 완료되었습니다!');
                 location.href = '../login/index.html';
