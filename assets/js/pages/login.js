@@ -66,6 +66,7 @@ async function performLogin(username, password) {
       localStorage.setItem("access", data.access);
       localStorage.setItem("refresh", data.refresh);
       localStorage.setItem("user", JSON.stringify(data.user));
+      localStorage.setItem("isLoggedIn", "true");
 
       handleLoginSuccess();
     } else {
@@ -130,33 +131,3 @@ function handleLoginSuccess() {
     window.location.href = "/";
   }
 }
-
-// 로그인 완료시 헤더 아이콘 변경
-
-// 로그인 버튼 클릭 이벤트 핸들러
-const handleLoginSubmit = async () => {
-  // 1. 사용자가 입력한 값 가져오기
-  const id = document.getElementById("user-id").value;
-  const pw = document.getElementById("user-pw").value;
-
-  // 2. 실제 API 호출 (가정)
-  const response = await fetch("https://api.example.com/login", {
-    method: "POST",
-    body: JSON.stringify({ id, pw }),
-  });
-
-  if (response.ok) {
-    // ✅ 성공 시: 로컬 스토리지에 로그인 상태 저장
-    localStorage.setItem("isLoggedIn", "true");
-
-    // ✅ 성공 시: 헤더 UI를 즉시 업데이트 (전역 함수 호출)
-    if (typeof window.updateHeaderUI === "function") {
-      window.updateHeaderUI();
-    }
-
-    // 메인 페이지로 이동
-    window.location.href = "/";
-  } else {
-    alert("로그인 정보가 올바르지 않습니다.");
-  }
-};

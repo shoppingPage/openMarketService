@@ -1,26 +1,6 @@
-/* 기본 상태 (검정/회색 아이콘) */
-.nav-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--input-txt-color); /* 기본 텍스트 색상 */
-}
-
 /* 장바구니 페이지 활성화 상태 */
 .nav-link.active {
   color: var(--point-color);
-}
-
-/* 로그인 완료 상태 (is-login 클래스가 붙었을 때) */
-#nav-user-status.is-login .nav-link {
-  color: var(--point-color); /* 텍스트를 초록색으로 */
-}
-
-/* 아이콘 이미지 크기 조정 */
-.icon-user {
-  width: 32px;
-  height: 32px;
-  margin-bottom: 4px;
 }
 
 /* ===== 로그인 요청 모달 ===== */
@@ -106,4 +86,49 @@
   background-color: var(--point-color);
   color: #fff;
   border-radius: 0 0 10px 0;
+}
+
+/* ===== 마이페이지 드롭다운 ===== */
+#nav-user-status {
+  position: relative;
+}
+
+.user-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  background-color: #fff;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  min-width: 130px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.user-dropdown.active {
+  display: block;
+}
+
+.user-dropdown .dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  text-align: center;
+  font-size: 16px;
+  color: #767676;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.user-dropdown .dropdown-item:first-child {
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.user-dropdown .dropdown-item:hover {
+  color: var(--text-color);
 }

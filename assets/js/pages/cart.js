@@ -23,7 +23,7 @@ let products = {}; // 상품 정보 캐시
  * 토큰 가져오기
  */
 function getToken() {
-  return localStorage.getItem('token');
+  return localStorage.getItem('access');
 }
 
 /**

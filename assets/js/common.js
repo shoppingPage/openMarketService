@@ -101,13 +101,15 @@ async function loadHeader(basePath = "./assets/", activePage = "") {
     const target = document.querySelector("#header-container");
     if (target) {
       target.innerHTML = tempDiv.innerHTML;
+      // 헤더 로드 후 로그인 상태에 따라 UI 업데이트
+      updateHeaderUI();
     }
   } catch (error) {
     console.error("Header 컴포넌트 로드 오류:", error);
   }
 }
 
-// 가짜 마이페이지 구현
+// 헤더 로그인 상태 UI 업데이트
 
 const updateHeaderUI = () => {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
@@ -118,23 +120,78 @@ const updateHeaderUI = () => {
 
   const loginLink = userStatusLi.querySelector("a");
   const loginText = document.getElementById("login-text");
-  const loginIcon = loginLink.querySelector("img");
 
   if (isLoggedIn) {
     // 1. 로그인 완료 상태
-    userStatusLi.classList.add("is-login");
-    loginLink.setAttribute("href", "/mypage");
     loginText.textContent = "마이페이지";
-    // 확장자 .svg를 반드시 붙여주세요!
-    loginIcon.setAttribute("src", "../assets/images/icon-user-2.svg");
+
+    // 마이페이지 클릭 시 드롭다운 토글 (링크 이동 방지)
+    loginLink.setAttribute("href", "#");
+    loginLink.onclick = (e) => {
+      e.preventDefault();
+      toggleUserDropdown();
+    };
+
+    // 드롭다운 이벤트 초기화
+    initUserDropdownEvents();
   } else {
     // 2. 로그아웃 상태
-    userStatusLi.classList.remove("is-login");
     loginLink.setAttribute("href", "/login");
+    loginLink.onclick = null;
     loginText.textContent = "로그인";
-    loginIcon.setAttribute("src", "../assets/images/icon-user.svg");
   }
 };
+
+/**
+ * 마이페이지 드롭다운을 토글합니다.
+ */
+function toggleUserDropdown() {
+  const dropdown = document.getElementById("user-dropdown");
+  if (dropdown) {
+    dropdown.classList.toggle("active");
+  }
+}
+
+/**
+ * 마이페이지 드롭다운을 닫습니다.
+ */
+function closeUserDropdown() {
+  const dropdown = document.getElementById("user-dropdown");
+  if (dropdown) {
+    dropdown.classList.remove("active");
+  }
+}
+
+/**
+ * 드롭다운 이벤트 리스너를 초기화합니다.
+ */
+function initUserDropdownEvents() {
+  const logoutBtn = document.getElementById("btn-logout");
+
+  // 로그아웃 버튼 클릭
+  if (logoutBtn) {
+    logoutBtn.onclick = () => {
+      // 로컬 스토리지 클리어
+      localStorage.removeItem("access");
+      localStorage.removeItem("refresh");
+      localStorage.removeItem("user");
+      localStorage.removeItem("isLoggedIn");
+
+      // 메인 페이지로 이동
+      window.location.href = "/";
+    };
+  }
+
+  // 드롭다운 외부 클릭 시 닫기
+  document.addEventListener("click", (e) => {
+    const userStatus = document.getElementById("nav-user-status");
+    const dropdown = document.getElementById("user-dropdown");
+
+    if (userStatus && dropdown && !userStatus.contains(e.target)) {
+      closeUserDropdown();
+    }
+  });
+}
 // ==========================================
 // JWT 토큰 관리 함수들
 // ==========================================
