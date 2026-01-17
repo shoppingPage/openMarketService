@@ -2,6 +2,7 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>장바구니 | HODU</title>
     <link rel="stylesheet" href="../assets/css/reset.css" />
@@ -84,7 +85,7 @@
     <div class="delete-modal-overlay" id="deleteModal">
       <div class="delete-modal">
         <button type="button" class="delete-modal-close" id="deleteModalClose">
-          <img src="../assets/images/icon-delete.svg" alt="닫기" />
+          <img src="../assets/images/icon-delete.svg" alt="닫기" width="22" height="22" />
         </button>
         <div class="delete-modal-content">
           <p>상품을 삭제하시겠습니까?</p>
@@ -99,8 +100,8 @@
     <!-- Footer -->
     <div id="footer-container"></div>
 
-    <script src="../assets/js/common.js"></script>
-    <script src="../assets/js/pages/cart.js"></script>
+    <script src="../assets/js/common.js" defer></script>
+    <script src="../assets/js/pages/cart.js" defer></script>
     <script>
       loadHeader("../assets/", "cart");
       loadFooter("../assets/");

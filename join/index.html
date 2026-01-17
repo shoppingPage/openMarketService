@@ -2,6 +2,7 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <title>회원가입 | HODU</title>
     <link rel="stylesheet" href="../assets/css/pages/join.css" />
     <link rel="stylesheet" href="../assets/css/reset.css" />
@@ -15,6 +16,8 @@
           src="../assets/images/Logo-hodu.png"
           alt="HODU 로고"
           class="logo-img"
+          width="124"
+          height="38"
         /></a>
       </div>
 
@@ -40,7 +43,7 @@
             <label>비밀번호</label>
             <div class="input-wrapper">
               <input type="password" id="pw" />
-              <img src="../assets/images/icon-check-off.svg" alt="" class="icon-check" id="pwIcon" />
+              <img src="../assets/images/icon-check-off.svg" alt="" class="icon-check" id="pwIcon" width="28" height="28" />
             </div>
             <p class="msg" id="pwMsg"></p>
           </div>
@@ -49,7 +52,7 @@
             <label>비밀번호 재확인</label>
             <div class="input-wrapper">
               <input type="password" id="pwConfirm" />
-              <img src="../assets/images/icon-check-off.svg" alt="" class="icon-check" id="pwConfirmIcon" />
+              <img src="../assets/images/icon-check-off.svg" alt="" class="icon-check" id="pwConfirmIcon" width="28" height="28" />
             </div>
             <p class="msg" id="pwConfirmMsg"></p>
           </div>
@@ -84,6 +87,6 @@
 
       <button type="submit" id="btnJoin" form="joinForm" disabled>가입하기</button>
     </div>
-    <script src="../assets/js/pages/join.js"></script>
+    <script src="../assets/js/pages/join.js" defer></script>
   </body>
 </html>

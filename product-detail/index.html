@@ -2,6 +2,7 @@
 <html lang="ko-KR">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상품 상세 | HODU</title>
     <link rel="stylesheet" href="../assets/css/reset.css" />
@@ -20,7 +21,13 @@
           <h2 class="scr-only">상품 상세 정보</h2>
 
           <div class="product-img">
-            <img src="" alt="딥러닝 개발자 무릎 담요 제품 이미지" />
+            <img
+              src=""
+              alt="딥러닝 개발자 무릎 담요 제품 이미지"
+              width="600"
+              height="600"
+              fetchpriority="high"
+            />
           </div>
 
           <div class="product-info">
@@ -37,6 +44,8 @@
                   <img
                     src="../assets/images/icon-minus-line.svg"
                     alt="수량 감소"
+                    width="20"
+                    height="20"
                   />
                 </button>
                 <input type="number" value="1" />
@@ -44,6 +53,8 @@
                   <img
                     src="../assets/images/icon-plus-line.svg"
                     alt="수량 증가"
+                    width="20"
+                    height="20"
                   />
                 </button>
               </div>
@@ -94,40 +105,83 @@
     <!-- 장바구니 중복 모달 -->
     <div class="cart-duplicate-modal-overlay" id="cartDuplicateModal">
       <div class="cart-duplicate-modal">
-        <button type="button" class="cart-duplicate-modal-close" id="cartDuplicateModalClose">
-          <img src="../assets/images/icon-delete.svg" alt="닫기" />
+        <button
+          type="button"
+          class="cart-duplicate-modal-close"
+          id="cartDuplicateModalClose"
+        >
+          <img
+            src="../assets/images/icon-delete.svg"
+            alt="닫기"
+            width="22"
+            height="22"
+          />
         </button>
         <div class="cart-duplicate-modal-content">
-          <p>이미 장바구니에 있는 상품입니다.<br>장바구니로 이동하시겠습니까?</p>
+          <p>이미 장바구니에 있는 상품입니다.<br />장바구니로 이동하시겠습니까?</p>
         </div>
         <div class="cart-duplicate-modal-buttons">
-          <button type="button" class="btn-modal-no" id="btnDuplicateModalNo">아니오</button>
-          <button type="button" class="btn-modal-yes" id="btnDuplicateModalYes">예</button>
+          <button type="button" class="btn-modal-no" id="btnDuplicateModalNo">
+            아니오
+          </button>
+          <button
+            type="button"
+            class="btn-modal-yes"
+            id="btnDuplicateModalYes"
+          >
+            예
+          </button>
         </div>
       </div>
     </div>
 
     <!-- 장바구니 추가 성공 모달 -->
-    <div class="cart-add-success-modal-overlay" id="cartAddSuccessModal">
-        <div class="cart-add-success-modal">
-            <button type="button" class="cart-add-success-modal-close" id="cartAddSuccessModalClose">
-                <img src="../assets/images/icon-delete.svg" alt="닫기" />
-            </button>
-            <div class="cart-add-success-modal-content">
-                <p>장바구니에 상품을 담았습니다.<br>장바구니로 이동하시겠습니까?</p>
-            </div>
-            <div class="cart-add-success-modal-buttons">
-                <button type="button" class="btn-modal-no" id="btnAddSuccessModalNo">아니오</button>
-                <button type="button" class="btn-modal-yes" id="btnAddSuccessModalYes">예</button>
-            </div>
+    <div
+      class="cart-add-success-modal-overlay"
+      id="cartAddSuccessModal"
+    >
+      <div class="cart-add-success-modal">
+        <button
+          type="button"
+          class="cart-add-success-modal-close"
+          id="cartAddSuccessModalClose"
+        >
+          <img
+            src="../assets/images/icon-delete.svg"
+            alt="닫기"
+            width="22"
+            height="22"
+          />
+        </button>
+        <div class="cart-add-success-modal-content">
+          <p>
+            장바구니에 상품을 담았습니다.<br />장바구니로 이동하시겠습니까?
+          </p>
         </div>
+        <div class="cart-add-success-modal-buttons">
+          <button
+            type="button"
+            class="btn-modal-no"
+            id="btnAddSuccessModalNo"
+          >
+            아니오
+          </button>
+          <button
+            type="button"
+            class="btn-modal-yes"
+            id="btnAddSuccessModalYes"
+          >
+            예
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- footer -->
     <div id="footer-container"></div>
 
-    <script src="../assets/js/common.js"></script>
-    <script src="../assets/js/pages/product-detail.js"></script>
+    <script src="../assets/js/common.js" defer></script>
+    <script src="../assets/js/pages/product-detail.js" defer></script>
     <script>
       loadHeader("../assets/");
       loadFooter("../assets/");
