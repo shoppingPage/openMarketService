@@ -1,110 +1,115 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>장바구니 | HODU</title>
-    <link rel="stylesheet" href="../assets/css/reset.css" />
-    <link rel="stylesheet" href="../assets/css/root.css" />
-    <link rel="stylesheet" href="../assets/css/font.css" />
-    <link rel="stylesheet" href="../assets/css/common.css" />
-    <link rel="stylesheet" href="../assets/css/pages/cart.css" />
-  </head>
-  <body>
-    <!-- Header -->
-    <div id="header-container"></div>
 
-    <!-- Main Content -->
-    <main class="cart-main">
-      <h2 class="cart-title">장바구니</h2>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>장바구니 | HODU</title>
+  <link rel="stylesheet" href="../assets/css/reset.css" />
+  <link rel="stylesheet" href="../assets/css/root.css" />
+  <link rel="stylesheet" href="../assets/css/font.css" />
+  <link rel="stylesheet" href="../assets/css/common.css" />
+  <link rel="stylesheet" href="../assets/css/pages/cart.css" />
+</head>
 
-      <!-- Cart Table Header -->
-      <div class="cart-header-bar">
-        <div class="container cart-header-content">
-          <label class="custom-checkbox header-checkbox">
-            <input type="checkbox" id="selectAll" checked />
-            <span class="checkmark"></span>
-          </label>
-          <span class="header-label product-info-label">상품정보</span>
-          <span class="header-label quantity-label">수량</span>
-          <span class="header-label price-label">상품금액</span>
-        </div>
+<body>
+  <!-- Header -->
+  <header id="header-container"></header>
+
+  <!-- Main Content -->
+  <main class="cart-main">
+    <h2 class="cart-title">장바구니</h2>
+
+    <!-- Cart Table Header -->
+    <div class="cart-header-bar">
+      <div class="container cart-header-content">
+        <label class="custom-checkbox header-checkbox">
+          <input type="checkbox" id="selectAll" checked />
+          <span class="checkmark"></span>
+        </label>
+        <span class="header-label product-info-label">상품정보</span>
+        <span class="header-label quantity-label">수량</span>
+        <span class="header-label price-label">상품금액</span>
+      </div>
+    </div>
+
+    <!-- Cart Items Container -->
+    <div class="container">
+      <div id="cartItems" class="cart-items-list">
+        <!-- 상품이 담긴 경우 동적으로 렌더링 -->
       </div>
 
-      <!-- Cart Items Container -->
+      <!-- Empty Cart State -->
+      <div id="emptyCart" class="empty-cart" style="display: none;">
+        <p class="empty-cart-title">장바구니에 담긴 상품이 없습니다.</p>
+        <p class="empty-cart-text">원하는 상품을 장바구니에 담아보세요!</p>
+      </div>
+    </div>
+
+    <!-- Summary Section -->
+    <div class="cart-summary-wrapper">
       <div class="container">
-        <div id="cartItems" class="cart-items-list">
-          <!-- 상품이 담긴 경우 동적으로 렌더링 -->
-        </div>
-
-        <!-- Empty Cart State -->
-        <div id="emptyCart" class="empty-cart" style="display: none;">
-          <p class="empty-cart-title">장바구니에 담긴 상품이 없습니다.</p>
-          <p class="empty-cart-text">원하는 상품을 장바구니에 담아보세요!</p>
-        </div>
-      </div>
-
-      <!-- Summary Section -->
-      <div class="cart-summary-wrapper">
-        <div class="container">
-          <div class="cart-summary">
-            <div class="summary-item">
-              <span class="summary-label">총 상품금액</span>
-              <span class="summary-value" id="totalProductPrice">0<span class="unit">원</span></span>
-            </div>
-            <div class="summary-operator minus">
-              <span>-</span>
-            </div>
-            <div class="summary-item">
-              <span class="summary-label">상품 할인</span>
-              <span class="summary-value" id="discountPrice">0<span class="unit">원</span></span>
-            </div>
-            <div class="summary-operator plus">
-              <span>+</span>
-            </div>
-            <div class="summary-item">
-              <span class="summary-label">배송비</span>
-              <span class="summary-value" id="shippingFee">0<span class="unit">원</span></span>
-            </div>
-            <div class="summary-result">
-              <span class="result-label">결제 예정 금액</span>
-              <span class="result-value" id="totalPrice">0<span class="unit">원</span></span>
-            </div>
+        <div class="cart-summary">
+          <div class="summary-item">
+            <span class="summary-label">총 상품금액</span>
+            <span class="summary-value" id="totalProductPrice">0<span class="unit">원</span></span>
           </div>
-        </div>
-      </div>
-
-      <!-- Order Button -->
-      <div class="container order-btn-wrapper">
-        <button type="button" class="order-btn-main" id="orderBtn">주문하기</button>
-      </div>
-    </main>
-
-    <!-- 삭제 확인 모달 -->
-    <div class="delete-modal-overlay" id="deleteModal">
-      <div class="delete-modal">
-        <button type="button" class="delete-modal-close" id="deleteModalClose">
-          <img src="../assets/images/icon-delete.svg" alt="닫기" width="22" height="22" />
-        </button>
-        <div class="delete-modal-content">
-          <p>상품을 삭제하시겠습니까?</p>
-        </div>
-        <div class="delete-modal-buttons">
-          <button type="button" class="btn-modal-cancel" id="btnDeleteCancel">취소</button>
-          <button type="button" class="btn-modal-confirm" id="btnDeleteConfirm">확인</button>
+          <div class="summary-operator minus">
+            <span>-</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">상품 할인</span>
+            <span class="summary-value" id="discountPrice">0<span class="unit">원</span></span>
+          </div>
+          <div class="summary-operator plus">
+            <span>+</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">배송비</span>
+            <span class="summary-value" id="shippingFee">0<span class="unit">원</span></span>
+          </div>
+          <div class="summary-result">
+            <span class="result-label">결제 예정 금액</span>
+            <span class="result-value" id="totalPrice">0<span class="unit">원</span></span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Footer -->
-    <div id="footer-container"></div>
+    <!-- Order Button -->
+    <div class="container order-btn-wrapper">
+      <button type="button" class="order-btn-main" id="orderBtn">주문하기</button>
+    </div>
+  </main>
 
-    <script src="../assets/js/common.js" defer></script>
-    <script src="../assets/js/pages/cart.js" defer></script>
-    <script>
+  <!-- 삭제 확인 모달 -->
+  <div class="delete-modal-overlay" id="deleteModal">
+    <div class="delete-modal">
+      <button type="button" class="delete-modal-close" id="deleteModalClose">
+        <img src="../assets/images/icon-delete.svg" alt="닫기" width="22" height="22" />
+      </button>
+      <div class="delete-modal-content">
+        <p>상품을 삭제하시겠습니까?</p>
+      </div>
+      <div class="delete-modal-buttons">
+        <button type="button" class="btn-modal-cancel" id="btnDeleteCancel">취소</button>
+        <button type="button" class="btn-modal-confirm" id="btnDeleteConfirm">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer-container"></footer>
+
+  <script src="../assets/js/common.js" defer></script>
+  <script src="../assets/js/pages/cart.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
       loadHeader("../assets/", "cart");
       loadFooter("../assets/");
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
