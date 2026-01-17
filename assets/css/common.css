@@ -3,7 +3,7 @@
   color: var(--point-color);
 }
 
-/* ===== 로그인 요청 모달 ===== */
+/* 로그인 요청 모달 */
 .login-modal-overlay {
   display: none;
   position: fixed;
@@ -88,7 +88,7 @@
   border-radius: 0 0 10px 0;
 }
 
-/* ===== 마이페이지 드롭다운 ===== */
+/* 마이페이지 드롭다운 */
 #nav-user-status {
   position: relative;
 }

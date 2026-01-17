@@ -3,29 +3,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* 화면 전체 높이 사용 */
+  min-height: 100vh;
   background-color: var(--background-color, #fff);
 }
 
 .content-wrapper {
   display: flex;
-  justify-content: center; /* 아이템 전체를 중앙 정렬 */
-  align-items: center; /* 수직 중앙 정렬 */
-  gap: 60px; /* 아이콘과 텍스트 사이 간격 */
-  max-width: 800px; /* 전체 콘텐츠 너비 제한 */
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  max-width: 800px;
   width: 100%;
   padding: 0 20px;
 }
 
 /* 이미지 영역 */
 .img-area {
-  display: flex; /* 내부 이미지를 정렬하기 위해 flex 유지 */
-  /* justify-content: flex-end; -- 제거: flex:1 제거로 필요 없어짐 */
+  display: flex;
 }
 
 .img-area img {
   max-width: 100%;
-  width: 280px; /* 디자인 비율에 맞춰 조정 필요 */
+  width: 280px;
   height: auto;
 }
 
@@ -38,7 +37,7 @@
 }
 
 .error-title {
-  font-size: 3.2rem; /* 제목 크기 */
+  font-size: 3.2rem;
   font-weight: 700;
   color: var(--text-color, #333);
   margin-bottom: 20px;
@@ -62,13 +61,13 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 200px; /* 버튼 너비 고정 */
+  width: 200px;
   height: 60px;
   border-radius: 5px;
   font-size: 1.8rem;
   font-weight: 700;
   cursor: pointer;
-  text-decoration: none; /* a 태그 밑줄 제거 */
+  text-decoration: none;
   transition: all 0.2s ease;
   box-sizing: border-box;
 }

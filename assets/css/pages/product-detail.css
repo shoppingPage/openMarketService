@@ -172,13 +172,11 @@ main {
   border-top: 2px solid var(--gray-color);
 }
 
-/* 첫 번째 divider: margin-top 20px, margin-bottom 30px */
 .divider:first-of-type {
   margin-top: 20px;
   margin-bottom: 30px;
 }
 
-/* 두 번째 divider: margin-top 30px, margin-bottom 32px */
 .divider:last-of-type {
   margin-top: 30px;
   margin-bottom: 32px;
@@ -384,9 +382,8 @@ main {
   color: var(--text-color);
 }
 
-/* ================================ */
 /* 탭 콘텐츠 영역 */
-/* ================================ */
+
 .tab-content-wrapper {
   min-height: 400px;
   padding: 60px 0;
@@ -806,9 +803,8 @@ main {
   color: #000000;
 }
 
-/* ================================ */
 /* 장바구니 중복 모달 */
-/* ================================ */
+
 .cart-duplicate-modal-overlay {
   display: none;
   position: fixed;
@@ -901,9 +897,8 @@ main {
   border: none;
 }
 
-/* ================================ */
 /* 장바구니 추가 성공 모달 */
-/* ================================ */
+
 .cart-add-success-modal-overlay {
   display: none;
   position: fixed;
