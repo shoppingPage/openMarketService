@@ -164,7 +164,11 @@ root/
 
 ## 전체 사용자 흐름
 
-![회원가입](./assets/images/readme-images/user-flow.png)
+<img 
+  src="./assets/images/readme-images/user-flow.png"
+  alt="회원가입"
+  style="width: 60%;"
+/>
 
 ---
 
