@@ -110,7 +110,6 @@ async function loadHeader(basePath = "./assets/", activePage = "") {
 }
 
 // 헤더 로그인 상태 UI 업데이트
-
 const updateHeaderUI = () => {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   const userStatusLi = document.getElementById("nav-user-status");
@@ -192,10 +191,7 @@ function initUserDropdownEvents() {
     }
   });
 }
-// ==========================================
 // JWT 토큰 관리 함수들
-// ==========================================
-
 /**
  * 로컬 스토리지에서 access token을 가져옵니다.
  * @returns {string|null} access token 또는 null
@@ -317,10 +313,7 @@ async function fetchWithAuth(url, options = {}) {
     return response;
 }
 
-// ==========================================
 // 로그인 요청 모달 함수들
-// ==========================================
-
 /**
  * 로그인 모달 컴포넌트를 로드합니다.
  * @param {string} basePath - 에셋 기본 경로 (기본값: './assets/')
