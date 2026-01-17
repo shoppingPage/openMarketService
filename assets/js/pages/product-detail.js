@@ -40,7 +40,7 @@
     // 4. API 호출
     async function fetchProductData() {
         if (!PRODUCT_ID) {
-            window.location.href = "/404/";
+            window.location.href = "../404/";
             return null;
         }
 
@@ -50,7 +50,7 @@
             );
 
             if (!response.ok) {
-                window.location.href = "/404/";
+                window.location.href = "../404/";
                 return null;
             }
 
@@ -58,7 +58,7 @@
 
         } catch (error) {
             console.error('API 에러:', error);
-            window.location.href = "/404/";
+            window.location.href = "../404/";
             return null;
         }
     }

@@ -31,7 +31,7 @@ async function fetchAndRender() {
       .join("");
   } catch (err) {
     console.error("데이터 로딩 중 오류:", err);
-    window.location.href = "/404/";
+    window.location.href = "./404/";
   }
 }
 

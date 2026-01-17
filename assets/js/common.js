@@ -76,9 +76,16 @@ async function loadHeader(basePath = "./assets/", activePage = "") {
 
     // 로고 링크 경로 설정
     const logoLink = tempDiv.querySelector('a[data-link="home"]');
+    const homeBase = basePath.includes("../") ? "../" : "./";
     if (logoLink) {
-      logoLink.href = basePath.includes("../") ? "/" : "/";
+      logoLink.href = homeBase;
     }
+
+    // 장바구니, 로그인 링크 경로 설정
+    const cartLink = tempDiv.querySelector('a[data-nav="cart"]');
+    const loginLinkEl = tempDiv.querySelector('a[data-nav="login"]');
+    if (cartLink) cartLink.href = homeBase + "cart/";
+    if (loginLinkEl) loginLinkEl.href = homeBase + "login/";
 
     // 활성 페이지 표시
     if (activePage) {
@@ -176,8 +183,10 @@ function initUserDropdownEvents() {
       localStorage.removeItem("user");
       localStorage.removeItem("isLoggedIn");
 
-      // 메인 페이지로 이동
-      window.location.href = "/";
+      // 메인 페이지로 이동 (상대 경로 사용)
+      const currentPath = window.location.pathname;
+      const homeUrl = currentPath.includes("/cart/") || currentPath.includes("/login/") || currentPath.includes("/join/") || currentPath.includes("/product-detail/") ? "../" : "./";
+      window.location.href = homeUrl;
     };
   }
 

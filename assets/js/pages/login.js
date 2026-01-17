@@ -118,6 +118,6 @@ function handleLoginSuccess() {
     sessionStorage.removeItem("returnUrl");
     window.location.href = returnUrl;
   } else {
-    window.location.href = "/";
+    window.location.href = "../";
   }
 }
