@@ -11,77 +11,78 @@
   <body>
     <div class="join-container">
       <div class="logo-container">
-        <img
+        <a href="/"><img
           src="../assets/images/Logo-hodu.png"
           alt="HODU 로고"
           class="logo-img"
-        />
+        /></a>
       </div>
 
-      <form id="joinForm">
-        <div class="input-group">
-          <label>아이디</label>
-          <div class="id-flex">
-            <input type="text" id="userId" placeholder="아이디를 입력하세요" />
-            <button type="button" id="btnCheckId">중복확인</button>
+      <!-- 탭 메뉴 -->
+      <div class="tab-menu">
+        <button type="button" class="tab-btn active">구매회원가입</button>
+        <button type="button" class="tab-btn">판매회원가입</button>
+      </div>
+
+      <!-- 폼 박스 -->
+      <div class="form-box">
+        <form id="joinForm">
+          <div class="input-group">
+            <label>아이디</label>
+            <div class="id-flex">
+              <input type="text" id="userId" />
+              <button type="button" id="btnCheckId">중복확인</button>
+            </div>
+            <p class="msg" id="idMsg"></p>
           </div>
-          <p class="msg" id="idMsg"></p>
-        </div>
 
-        <div class="input-group">
-          <label>비밀번호</label>
-          <div class="input-wrapper">
-            <input
-              type="password"
-              id="pw"
-              placeholder="비밀번호를 입력하세요"
-            />
-            <span class="icon-check" id="pwIcon">✔</span>
+          <div class="input-group">
+            <label>비밀번호</label>
+            <div class="input-wrapper">
+              <input type="password" id="pw" />
+              <img src="../assets/images/icon-check-off.svg" alt="" class="icon-check" id="pwIcon" />
+            </div>
+            <p class="msg" id="pwMsg"></p>
           </div>
-          <p class="msg" id="pwMsg"></p>
-        </div>
 
-        <div class="input-group">
-          <label>비밀번호 재확인</label>
-          <div class="input-wrapper">
-            <input
-              type="password"
-              id="pwConfirm"
-              placeholder="비밀번호를 다시 입력하세요"
-            />
-            <span class="icon-check" id="pwConfirmIcon">✔</span>
+          <div class="input-group">
+            <label>비밀번호 재확인</label>
+            <div class="input-wrapper">
+              <input type="password" id="pwConfirm" />
+              <img src="../assets/images/icon-check-off.svg" alt="" class="icon-check" id="pwConfirmIcon" />
+            </div>
+            <p class="msg" id="pwConfirmMsg"></p>
           </div>
-          <p class="msg" id="pwConfirmMsg"></p>
-        </div>
 
-        <div class="input-group">
-          <label>이름</label>
-          <input type="text" id="userName" placeholder="이름을 입력하세요" />
-          <p class="msg" id="nameMsg"></p>
-        </div>
-
-        <div class="input-group">
-          <label>휴대폰번호</label>
-          <div class="phone-flex">
-            <select id="phone1">
-              <option value="010">010</option>
-            </select>
-            <input type="text" id="phone2" maxlength="4" />
-            <input type="text" id="phone3" maxlength="4" />
+          <div class="input-group section-gap">
+            <label>이름</label>
+            <input type="text" id="userName" />
+            <p class="msg" id="nameMsg"></p>
           </div>
-          <p class="msg" id="phoneMsg"></p>
-        </div>
 
-        <div class="terms-area">
-          <input type="checkbox" id="terms" />
-          <label for="terms"
-            >호두샵의 <span>이용약관</span> 및 <span>개인정보처리방침</span>에
-            대한 내용을 확인하였고 동의합니다.</label
-          >
-        </div>
+          <div class="input-group">
+            <label>휴대폰번호</label>
+            <div class="phone-flex">
+              <select id="phone1">
+                <option value="010">010</option>
+              </select>
+              <input type="text" id="phone2" maxlength="4" />
+              <input type="text" id="phone3" maxlength="4" />
+            </div>
+            <p class="msg" id="phoneMsg"></p>
+          </div>
+        </form>
+      </div>
 
-        <button type="submit" id="btnJoin" disabled>가입하기</button>
-      </form>
+      <!-- 개인정보 동의 (박스 밖) -->
+      <div class="terms-area">
+        <input type="checkbox" id="terms" />
+        <label for="terms"
+          >호두샵의 <span>이용약관</span> 및 <span>개인정보처리방침</span>에 대한 내용을 확인하였고 동의합니다.</label
+        >
+      </div>
+
+      <button type="submit" id="btnJoin" form="joinForm" disabled>가입하기</button>
     </div>
     <script src="../assets/js/pages/join.js"></script>
   </body>

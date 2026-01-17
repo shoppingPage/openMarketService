@@ -3,49 +3,257 @@
     --error-color: #EB5757;
     --gray-color: #F2F2F2;
     --text-gray: #767676;
+    --border-color: #C4C4C4;
 }
 
-body { font-family: sans-serif; display: flex; justify-content: center; padding: 50px; background: #fff; }
-.join-container { width: 550px; text-align: center; }
-.logo { color: var(--primary-color); font-size: 50px; margin-bottom: 50px; font-weight: bold; }
+body {
+    font-family: 'Spoqa Han Sans Neo', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    background: #fff;
+}
+
+.join-container {
+    width: 550px;
+    text-align: center;
+}
 
 /* 로고 컨테이너 스타일 */
 .logo-container {
     text-align: center;
-    margin-bottom: 50px; /* 로고와 폼 사이의 간격 */
+    margin-bottom: 40px;
 }
 
 .logo-img {
-    width: 200px; /* 로고의 가로 크기 (피그마 디자인에 맞춰 조절하세요) */
-    height: auto; /* 비율 유지 */
+    width: 200px;
+    height: auto;
     display: block;
     margin: 0 auto;
 }
 
+/* 탭 메뉴 스타일 */
+.tab-menu {
+    display: flex;
+    width: 100%;
+}
 
-.input-group { text-align: left; margin-bottom: 20px; position: relative; }
-.input-group label { display: block; margin-bottom: 10px; color: var(--text-gray); }
+.tab-btn {
+    flex: 1;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: 500;
+    background: #F2F2F2;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    color: var(--text-gray);
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+    position: relative;
+    z-index: 1;
+}
+
+.tab-btn:first-child {
+    border-right: none;
+}
+
+/* 폼 박스 스타일 */
+.form-box {
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 10px 10px;
+    padding: 35px 35px 40px;
+    background: #fff;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.input-group + .input-group {
+    margin-top: 12px;
+}
+
+.input-group.section-gap {
+    margin-top: 24px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-gray);
+    font-size: 16px;
+    font-weight: 400;
+}
 
 input[type="text"], input[type="password"], select {
-    width: 100%; padding: 15px; border: 1px solid #C4C4C4; border-radius: 5px; box-sizing: border-box;
+    width: 100%;
+    padding: 16px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s ease;
 }
 
-.id-flex, .phone-flex { display: flex; gap: 10px; }
-.id-flex input { flex: 1; }
-#btnCheckId { width: 120px; background: var(--primary-color); color: white; border: none; border-radius: 5px; cursor: pointer; }
+input[type="text"]:focus, input[type="password"]:focus, select:focus {
+    border-color: var(--primary-color);
+}
 
-.input-wrapper { position: relative; }
-.icon-check { position: absolute; right: 15px; top: 15px; color: #F2F2F2; font-weight: bold; }
+input[type="text"]::placeholder, input[type="password"]::placeholder {
+    color: var(--border-color);
+}
 
-.msg { font-size: 13px; margin-top: 5px; min-height: 18px; }
-.msg.success { color: var(--primary-color); }
-.msg.error { color: var(--error-color); }
+/* 아이디 입력 영역 */
+.id-flex {
+    display: flex;
+    gap: 12px;
+}
 
-.terms-area { margin: 30px 0; display: flex; align-items: flex-start; gap: 10px; text-align: left; font-size: 14px; color: var(--text-gray); }
-.terms-area span { text-decoration: underline; font-weight: bold; }
+.id-flex input {
+    flex: 1;
+}
 
+#btnCheckId {
+    width: 122px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+#btnCheckId:hover {
+    background: #1aa83e;
+}
+
+/* 비밀번호 입력 영역 */
+.input-wrapper {
+    position: relative;
+}
+
+.icon-check {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+}
+
+/* 에러/성공 상태 입력 필드 */
+input.error {
+    border-color: var(--error-color);
+}
+
+input.success {
+    border-color: var(--primary-color);
+}
+
+/* 메시지 스타일 */
+.msg {
+    font-size: 14px;
+    margin-top: 10px;
+    min-height: 0;
+}
+
+.msg:empty {
+    display: none;
+}
+
+.msg.success {
+    color: var(--primary-color);
+}
+
+.msg.error {
+    color: var(--error-color);
+}
+
+/* 휴대폰번호 영역 */
+.phone-flex {
+    display: flex;
+    gap: 12px;
+}
+
+.phone-flex select {
+    width: 150px;
+    flex-shrink: 0;
+    appearance: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23767676' d='M6 8L0 0h12z'/%3E%3C/svg%3E") no-repeat right 15px center;
+    background-size: 12px;
+    cursor: pointer;
+}
+
+.phone-flex input {
+    flex: 1;
+}
+
+/* 개인정보 동의 영역 (박스 밖) */
+.terms-area {
+    margin: 34px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+    font-size: 16px;
+    color: #767676;
+    padding: 0 5px;
+}
+
+.terms-area input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.terms-area label {
+    cursor: pointer;
+    line-height: 1.4;
+    color: #767676;
+}
+
+.terms-area span {
+    text-decoration: underline;
+    font-weight: 700;
+    color: #767676;
+}
+
+/* 가입하기 버튼 */
 #btnJoin {
-    width: 100%; padding: 18px; border: none; border-radius: 5px;
-    background: #C4C4C4; color: white; font-size: 18px; font-weight: bold; cursor: not-allowed;
+    width: 100%;
+    padding: 19px;
+    border: none;
+    border-radius: 5px;
+    background: var(--border-color);
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: not-allowed;
+    transition: background 0.2s ease;
 }
-#btnJoin.active { background: var(--primary-color); cursor: pointer; }
+
+#btnJoin.active {
+    background: var(--primary-color);
+    cursor: pointer;
+}
+
+#btnJoin.active:hover {
+    background: #1aa83e;
+}
