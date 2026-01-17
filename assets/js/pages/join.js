@@ -77,11 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
         if (pwReg.test(this.value)) {
             showMsg('pw', '', 'success'); // 메시지 지움
-            pwIcon.style.color = '#21BF48';
+            pwIcon.src = '../assets/images/icon-check-on.svg';
             isPwValid = true;
         } else {
             showMsg('pw', '8자 이상, 영문 대 소문자, 숫자를 사용하세요.', 'error');
-            pwIcon.style.color = '#F2F2F2';
+            pwIcon.src = '../assets/images/icon-check-off.svg';
             isPwValid = false;
         }
         // 비밀번호가 바뀌면 재확인 칸도 다시 체크해야 함
@@ -99,11 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (confirmValue === pwValue && confirmValue !== "") {
             showMsg('pwConfirm', '', 'success');
-            pwConfirmIcon.style.color = '#21BF48';
+            pwConfirmIcon.src = '../assets/images/icon-check-on.svg';
             isPwConfirmValid = true;
         } else {
             showMsg('pwConfirm', '비밀번호가 일치하지 않습니다.', 'error');
-            pwConfirmIcon.style.color = '#F2F2F2';
+            pwConfirmIcon.src = '../assets/images/icon-check-off.svg';
             isPwConfirmValid = false;
         }
     }
