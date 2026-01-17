@@ -33,7 +33,6 @@ img {
   height: auto;
 }
 
-/* html h1 ~ h2 에 .scr-only 적용 : 스크린 리더가 읽을 수 있도록 */
 .scr-only {
   position: absolute;
   clip: rect(0 0 0 0);
