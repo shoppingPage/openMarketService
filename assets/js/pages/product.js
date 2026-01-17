@@ -37,7 +37,7 @@ async function fetchAndRender() {
 
 fetchAndRender();
 
-// ===== 배너 슬라이더 =====
+// 배너 슬라이더
 (function() {
   'use strict';
 

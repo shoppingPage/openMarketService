@@ -1,14 +1,10 @@
-// ==========================================
 // 1. 요소 선택 및 상태 초기화
-// ==========================================
 const loginForm = document.getElementById("loginForm");
 const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const warnBox = document.getElementById("warnBox");
 
-// ==========================================
 // 2. UI 제어 함수 (경고 및 에러 관리)
-// ==========================================
 function showWarning(message) {
   if (warnBox) {
     warnBox.textContent = message;
@@ -40,9 +36,7 @@ function clearInputErrors() {
   });
 });
 
-// ==========================================
 // 3. API 로그인 시도 (Main Logic)
-// ==========================================
 async function performLogin(username, password) {
   try {
     const response = await fetch(
@@ -85,9 +79,7 @@ async function performLogin(username, password) {
   }
 }
 
-// ==========================================
 // 4. 폼 제출 이벤트 리스너
-// ==========================================
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -113,9 +105,7 @@ loginForm.addEventListener("submit", (e) => {
   performLogin(username, password);
 });
 
-// ==========================================
 // 5. 성공시 이동 처리
-// ==========================================
 function handleLoginSuccess() {
   // 세션에 저장된 이동할 주소가 있으면 해당 주소로, 없으면 메인으로 이동
   const returnUrl = sessionStorage.getItem("returnUrl");
