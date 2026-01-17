@@ -121,26 +121,28 @@
 /* 슬라이더 컨테이너 */
 .slider-container {
   width: 100%;
-  height: 100%;
+  height: 500px;
   overflow: hidden;
+  position: relative;
 }
 
 .slider-track {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   width: 100%;
-  height: 100%;
-  transition: transform 0.5s ease-in-out;
+  height: 500px;
 }
 
 .slide {
   min-width: 100%;
   height: 100%;
-  position: relative;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
   position: absolute;
   top: 0;
   left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .slide.active {
@@ -148,25 +150,18 @@
   position: relative;
 }
 
+.slide figure {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
 .slide img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
-}
-
-/* 슬라이드 영역 */
-
-.slider-track {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  height: 500px;
-}
-
-figure {
-  margin: 0;
 }
 
 /* 슬라이드 텍스트 콘텐츠 */
@@ -186,11 +181,6 @@ figure {
   font-weight: 700;
   margin-bottom: 16px;
   letter-spacing: -1px;
-}
-
-.slide-content p {
-  font-size: 2rem;
-  font-weight: 400;
 }
 
 /* 슬라이드 오버레이 (텍스트 가독성) */
