@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <meta
       name="description"
       content="세상의 모든 귀여움, HODU 쇼핑몰! 강아지, 고양이용품부터 유니크한 반려동물 굿즈까지 만나보세요."
@@ -55,6 +56,9 @@
                 <img
                   src="./assets/images/cat1.jpg"
                   alt="고양이 이미지 1"
+                  width="1920"
+                  height="500"
+                  fetchpriority="high"
                 />
                 <figcaption class="slide-content"></figcaption>
               </figure>
@@ -65,6 +69,9 @@
                 <img
                   src="./assets/images/cat2.jpg"
                   alt="고양이 이미지 2"
+                  width="1920"
+                  height="500"
+                  loading="lazy"
                 />
                 <figcaption class="slide-content"></figcaption>
               </figure>
@@ -75,6 +82,9 @@
                 <img
                   src="./assets/images/cat3.jpg"
                   alt="고양이 이미지 3"
+                  width="1920"
+                  height="500"
+                  loading="lazy"
                 />
                 <figcaption class="slide-content"></figcaption>
               </figure>
@@ -85,10 +95,20 @@
         <!-- 컨트롤 버튼 -->
         <nav class="slider-controls">
           <button class="prev-btn" aria-label="이전 배너">
-            <img src="./assets/images/icon-rhigt-arrow.svg" alt="" />
+            <img
+              src="./assets/images/icon-rhigt-arrow.svg"
+              alt=""
+              width="24"
+              height="24"
+            />
           </button>
           <button class="next-btn" aria-label="다음 배너">
-            <img src="./assets/images/icon-rhigt-arrow.svg" alt="" />
+            <img
+              src="./assets/images/icon-rhigt-arrow.svg"
+              alt=""
+              width="24"
+              height="24"
+            />
           </button>
         </nav>
 
@@ -115,11 +135,15 @@
     <!-- Footer -->
     <footer id="footer-container"></footer>
 
-    <script src="./assets/js/common.js"></script>
-    <script src="./assets/js/pages/product.js"></script>
+    <script src="./assets/js/common.js" defer></script>
+    <script src="./assets/js/pages/product.js" defer></script>
     <script>
-      loadHeader("./assets/");
-      loadFooter("./assets/");
+      // DOM이 완전히 로드된 후 실행되도록 보장합니다.
+      document.addEventListener("DOMContentLoaded", () => {
+        // 상대 경로를 명시적으로 전달합니다.
+        loadHeader("./assets/");
+        loadFooter("./assets/");
+      });
     </script>
   </body>
 </html>

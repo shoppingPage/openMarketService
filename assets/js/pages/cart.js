@@ -144,7 +144,7 @@ function renderCartItem(cartItem) {
 
       <div class="cart-item-content">
         <div class="cart-item-image">
-          <img src="${product.image}" alt="${product.name}" />
+          <img src="${product.image}" alt="${product.name}" width="160" height="160" />
         </div>
 
         <div class="cart-item-info">
@@ -157,11 +157,11 @@ function renderCartItem(cartItem) {
         <div class="cart-item-quantity">
           <div class="quantity-control">
             <button type="button" class="quantity-btn minus-btn" data-cart-id="${cartItem.id}">
-              <img src="../assets/images/icon-minus-line.svg" alt="감소" />
+              <img src="../assets/images/icon-minus-line.svg" alt="감소" width="20" height="20" />
             </button>
             <span class="quantity-value">${cartItem.quantity}</span>
             <button type="button" class="quantity-btn plus-btn" data-cart-id="${cartItem.id}">
-              <img src="../assets/images/icon-plus-line.svg" alt="증가" />
+              <img src="../assets/images/icon-plus-line.svg" alt="증가" width="20" height="20" />
             </button>
           </div>
         </div>
@@ -173,7 +173,7 @@ function renderCartItem(cartItem) {
       </div>
 
       <button type="button" class="cart-item-delete" data-cart-id="${cartItem.id}">
-        <img src="../assets/images/icon-delete.svg" alt="삭제" />
+        <img src="../assets/images/icon-delete.svg" alt="삭제" width="22" height="22" />
       </button>
     </article>
   `;
