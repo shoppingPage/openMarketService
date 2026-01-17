@@ -101,10 +101,26 @@
           <p>이미 장바구니에 있는 상품입니다.<br>장바구니로 이동하시겠습니까?</p>
         </div>
         <div class="cart-duplicate-modal-buttons">
-          <button type="button" class="btn-modal-no" id="btnModalNo">아니오</button>
-          <button type="button" class="btn-modal-yes" id="btnModalYes">예</button>
+          <button type="button" class="btn-modal-no" id="btnDuplicateModalNo">아니오</button>
+          <button type="button" class="btn-modal-yes" id="btnDuplicateModalYes">예</button>
         </div>
       </div>
+    </div>
+
+    <!-- 장바구니 추가 성공 모달 -->
+    <div class="cart-add-success-modal-overlay" id="cartAddSuccessModal">
+        <div class="cart-add-success-modal">
+            <button type="button" class="cart-add-success-modal-close" id="cartAddSuccessModalClose">
+                <img src="../assets/images/icon-delete.svg" alt="닫기" />
+            </button>
+            <div class="cart-add-success-modal-content">
+                <p>장바구니에 상품을 담았습니다.<br>장바구니로 이동하시겠습니까?</p>
+            </div>
+            <div class="cart-add-success-modal-buttons">
+                <button type="button" class="btn-modal-no" id="btnAddSuccessModalNo">아니오</button>
+                <button type="button" class="btn-modal-yes" id="btnAddSuccessModalYes">예</button>
+            </div>
+        </div>
     </div>
 
     <!-- footer -->
