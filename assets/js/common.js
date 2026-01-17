@@ -141,8 +141,10 @@ const updateHeaderUI = () => {
     // 드롭다운 이벤트 초기화
     initUserDropdownEvents();
   } else {
-    // 2. 로그아웃 상태
-    loginLink.setAttribute("href", "/login");
+    // 2. 로그아웃 상태 (상대 경로 사용)
+    const currentPath = window.location.pathname;
+    const loginPath = currentPath.includes("/cart/") || currentPath.includes("/login/") || currentPath.includes("/join/") || currentPath.includes("/product-detail/") || currentPath.includes("/404/") ? "../login/" : "./login/";
+    loginLink.setAttribute("href", loginPath);
     loginLink.onclick = null;
     loginText.textContent = "로그인";
   }
