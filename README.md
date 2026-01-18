@@ -1,14 +1,16 @@
-## 목차
+## Table of Contents - 목차
 
-1. [프로젝트 개요](#프로젝트-개요)
-2. [기술 스택](#tech-stack---기술-스택)
-3. [프로젝트 구조 및 URL 설계](#project-structure--urls---프로젝트-구조-및-url-설계)
-4. [팀원 및 역할 분담](#team-members--roles---팀원-및-역할-분담)
-5. [코딩 컨벤션](#coding-convention---코딩-컨벤션)
-6. [핵심 기능 및 사용자 경험 상세](#key-features--ux-details---핵심-기능-및-사용자-경험-상세)
-7. [협업 프로세스 및 일정](#collaboration--work-flow---협업-프로세스-및-일정)
-8. [성능 지표 및 서비스 화면](#performance--ui---성능-지표-및-서비스-화면)
-9. [향후 개발 및 확장 계획](#future-updates---향후-개발-및-확장-계획)
+1. [Project Overview - 프로젝트 개요](#1-project-overview---프로젝트-개요)
+2. [Tech Stack - 기술 스택](#2-tech-stack---기술-스택)
+3. [Project Structure & URLs - 프로젝트 구조 및 URL 설계](#3-project-structure--urls---프로젝트-구조-및-url-설계)
+4. [Team Members & Roles - 팀원 및 역할 분담](#4-team-members--roles---팀원-및-역할-분담)
+5. [Coding Convention - 코딩 컨벤션](#5-coding-convention---코딩-컨벤션)
+6. [Key Features & UX Details - 핵심 기능 및 사용자 경험 상세](#6-key-features--ux-details---핵심-기능-및-사용자-경험-상세)
+7. [Collaboration & Work-flow - 협업 프로세스 및 일정](#7-collaboration--work-flow---협업-프로세스-및-일정)
+8. [Performance & UI - 성능 지표 및 서비스 화면](#8-performance--ui---성능-지표-및-서비스-화면)
+9. [Trouble Shooting - 트러블슈팅 및 문제 해결](#9-trouble-shooting---트러블슈팅-및-문제-해결)
+10. [Future Updates - 향후 개발 및 확장 계획](#10-future-updates---향후-개발-및-확장-계획)
+11. [Project Review - 회고 및 성찰](#11-project-review---회고-및-성찰)
 
 ---
 
