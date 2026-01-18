@@ -10,6 +10,8 @@
 8. [성능 지표 및 서비스 화면](#performance--ui---성능-지표-및-서비스-화면)
 9. [향후 개발 및 확장 계획](#future-updates---향후-개발-및-확장-계획)
 
+---
+
 # 팀 오합지졸의 오픈마켓 서비스 프로젝트 (Open Market Service)
 
 ## Open Market Service - 오픈마켓 서비스 프로젝트
