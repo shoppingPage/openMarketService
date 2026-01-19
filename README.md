@@ -88,14 +88,14 @@ root/
 
 ### URL Mapping - URL 경로 매핑
 
-| URL 경로         | 파일 위치                 | 설명                   |
-| ---------------- | ------------------------- | ---------------------- |
-| /                | index.html                | 메인 페이지 (홈)       |
-| /login/          | login/index.html          | 로그인 페이지          |
-| /join/           | join/index.html           | 회원가입 페이지        |
-| /cart/           | cart/index.html           | 장바구니 페이지        |
-| /product-detail/ | product-detail/index.html | 상품 상세 페이지       |
-| /404/            | 404/index.html            | 404 에러 페이지 (대체) |
+| URL 경로         | 파일 위치                 | 설명             |
+| ---------------- | ------------------------- | ---------------- |
+| /                | index.html                | 메인 페이지 (홈) |
+| /login/          | login/index.html          | 로그인 페이지    |
+| /join/           | join/index.html           | 회원가입 페이지  |
+| /cart/           | cart/index.html           | 장바구니 페이지  |
+| /product-detail/ | product-detail/index.html | 상품 상세 페이지 |
+| /404/            | 404/index.html            | 404 에러 페이지  |
 
 ---
 
