@@ -123,7 +123,7 @@ root/
 
 ### JavaScript
 
-- **Variable:** `const` 사용을 원칙으로 하며, 변수/함수명은 `camelCase`, 상수는 `UPPER_SNAKE_CASE`를 사용합니다.
+- **Variable:** `const` 사용을 원칙으로 하며, 변수/함수명은 `camelCase` 를 사용합니다.
 - **DOM:** DOM 요소를 담는 변수는 접두어 `$`를 사용합니다. (예: `const $submitBtn`)
 - **Syntax:** 화살표 함수와 `async / await` 구문을 사용하며, 모든 문장 끝에는 세미콜론(`;`)을 붙입니다.
 
