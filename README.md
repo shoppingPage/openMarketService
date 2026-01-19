@@ -33,7 +33,7 @@
 
 - 상품 목록 조회 및 검색
 - 상품 상세 정보 확인
-- 회원가입 (구매회원/판매회원)
+- 회원가입 (구매회원)
 - 로그인/로그아웃
 - 장바구니 추가/수정/삭제
 - 404 에러 페이지 처리
@@ -156,7 +156,7 @@ root/
 
 ### Work Timeline - 개발 일정 (Gantt Chart)
 
-![작업 일정](./assets/images/readme-images/오픈마켓%20서비스%20UI%20API%20Pipeline-2026-01-17-111654.png)
+![작업 일정](./assets/images/readme-images/workTimeline.png)
 
 ### GitHub Workflow - 협업 도구 활용
 
@@ -200,7 +200,7 @@ root/
 **해결 방안:**
 
 1.  **이미지 압축:**
-    - `assets/images/` 폴더에 있는 모든 JPG, PNG 이미지의 품질을 유지하면서 압축.
+    - 메인페이지의 슬라이드 JPG 이미지를 webp로 변경.
 2.  **LCP 이미지 최적화:**
     - 가장 중요한 이미지(보통 페이지 상단의 큰 배너 또는 상품 이미지)에 `fetchpriority="high"` 속성을 추가하여 브라우저가 우선적으로 다운로드하도록 유도.
 3.  **지연 로딩(Lazy Loading) 적용:**
